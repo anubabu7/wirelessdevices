@@ -822,15 +822,19 @@ Banner Style
   background-size: cover;
 }
 #section-1 .content-slider .slider #top-banner-2 {
-  background: url('../images/airpod2.jpg') no-repeat center center;
+  background: url('../images/neckband1.jpeg') no-repeat center center;
   background-size: cover;
 }
 #section-1 .content-slider .slider #top-banner-3 {
-  background: url('../images/airpod2.jpg') no-repeat center center;
+  background: url('../images/airpod1.jpg') no-repeat center center;
   background-size: cover;
 }
 #section-1 .content-slider .slider #top-banner-4 {
-  background: url('../images/airpod2.jpg') no-repeat center center;
+  background: url('../images/neckband1.jpeg') no-repeat center center;
+  background-size: cover;
+}
+.bg{
+  background : url('../images/admin2.webp')  no-repeat center center;
   background-size: cover;
 }
 #section-1 .content-slider nav {
