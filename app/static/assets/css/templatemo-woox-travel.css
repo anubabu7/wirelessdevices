@@ -833,8 +833,20 @@ Banner Style
   background: url('../images/neckband1.jpeg') no-repeat center center;
   background-size: cover;
 }
-.bg{
+.bgA{
   background : url('../images/admin1.jpeg')  no-repeat center center;
+  background-size: cover;
+}
+.bgU{
+  background : url('../images/staff4.jpg')  no-repeat center center;
+  background-size: cover;
+}
+.bgSe{
+  background : url('../images/staff3.jpg')  no-repeat center center;
+  background-size: cover;
+}
+.bgSt{
+  background : url('../images/staff5.jpg')  no-repeat center center;
   background-size: cover;
 }
 #section-1 .content-slider nav {
