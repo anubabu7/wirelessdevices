@@ -8,6 +8,9 @@ from django.http import HttpResponse
 # Create your views here.
 def index(request):
     return render(request,"index.html")
+    # return render(request,"admin1.html")
+    # return render(request,"user1.html")
+
 def createaccount(request):
     return render(request,"createaccount.html")
 def user1(request):
