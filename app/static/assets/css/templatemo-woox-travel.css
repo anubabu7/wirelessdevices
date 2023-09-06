@@ -323,7 +323,7 @@ Header Style
 */
 
 .background-header {
-  background-color: #22b3c1 !important;
+  background-color: black !important;
   height: 70px!important;
   position: fixed!important;
   top: 0!important;
@@ -337,7 +337,7 @@ Header Style
 }
 
 .header-area {
-  background-color: #22b3c1;
+  background-color:#171717;
   position: absolute;
   height: 70px;
   top: 0;
@@ -402,7 +402,7 @@ Header Style
   font-weight: 400;
   font-size: 15px;
   text-transform: capitalize;
-  color: #fff;
+  color: white;
   -webkit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
@@ -426,7 +426,7 @@ Header Style
 .header-area .main-nav .nav li a.active::after {
   width: 20px;
   height: 2px;
-  background-color: #fff;
+  background-color: #ffff;
   position: absolute;
   content: '';
   left: 15px;
@@ -607,14 +607,14 @@ Header Style
   }
   .header-area.header-sticky .nav li a:hover,
   .header-area.header-sticky .nav li a.active {
-    color: #22b3c1!important;
+    color:black!important;
     opacity: 1;
   }
   .header-area.header-sticky .nav li.search-icon a {
     width: 100%;
   }
   .header-area {
-    background-color: #22b3c1;
+    background-color:black;
     padding: 0px 15px;
     height: 100px;
     box-shadow: none;
@@ -756,14 +756,14 @@ Banner Style
   display: inline-block;
 }
 #section-1 .more-info i {
-  color: #22b3c1;
+  color: black;
   font-size: 24px;
   width: 60px;
   height: 60px;
   display: inline-block;
   text-align: center;
   line-height: 58px;
-  border: 1px solid #22b3c1;
+  border: 1px solid black;
   border-radius: 50%;
   float: left;
   margin-right: 20px;
@@ -771,7 +771,7 @@ Banner Style
 #section-1 .more-info h4 {
   text-align: left;
   font-size: 20px;
-  color: #22b3c1;
+  color:black;
   font-weight: 700;
   line-height: 28px;
 }
@@ -785,8 +785,8 @@ Banner Style
   text-align: right;
 }
 #section-1 .main-button a:hover {
-  background-color: #22b3c1;
-  border-color: #22b3c1;
+  background-color: black;
+  border-color: black;
   color: #fff;
   opacity: 0.8;
 }
@@ -814,7 +814,7 @@ Banner Style
 }
 #section-1 .content-slider .slider .banner .banner-inner-wrapper .learn-more-button a:hover {
   color: #22b3c1;
-  border-color: #22b3c1;
+  border-color: black;
   transition: 0.3s;
 }
 #section-1 .content-slider .slider #top-banner-1 {
@@ -822,15 +822,15 @@ Banner Style
   background-size: cover;
 }
 #section-1 .content-slider .slider #top-banner-2 {
-  background: url('../images/skullcandy.jpg') no-repeat center center;
+  background: url('../images/airpod2.jpg') no-repeat center center;
   background-size: cover;
 }
 #section-1 .content-slider .slider #top-banner-3 {
-  background: url('../images/neckband1.jpeg') no-repeat center center;
+  background: url('../images/airpod2.jpg') no-repeat center center;
   background-size: cover;
 }
 #section-1 .content-slider .slider #top-banner-4 {
-  background: url('../images/skullcandy2.jpg') no-repeat center center;
+  background: url('../images/airpod2.jpg') no-repeat center center;
   background-size: cover;
 }
 #section-1 .content-slider nav {
@@ -878,7 +878,7 @@ Banner Style
   width: inherit;
   height: inherit;
   margin-left: -100%;
-  background: #22b3c1;
+  background: black;
 }
 #section-1 .content-slider nav .controls label span.text {
   font-size: 20px;
@@ -888,7 +888,7 @@ Banner Style
   width: 100%;
 }
 #section-1 .content-slider nav .controls label:hover {
-  color: #22b3c1;
+  color: black;
 }
 #section-1 .content-slider #banner1:checked ~ .slider #top-banner-1,
 #section-1 .content-slider #banner2:checked ~ .slider #top-banner-2,
@@ -975,8 +975,8 @@ Visit Country Style
 }
 
 .visit-country .item .right-content .main-button a:hover {
-  background-color: #22b3c1;
-  border-color: #22b3c1;
+  background-color:black;
+  border-color: black;
   color: #fff;
   opacity: 0.8;
 }
@@ -1028,9 +1028,9 @@ Visit Country Style
   display: inline-block;
   width: 46px;
   height: 46px;
-  border: 1px solid #22b3c1;
+  border: 1px solid black;
   line-height: 44px;
-  color: #22b3c1;
+  color: black;
   text-align: center;
   font-size: 18px;
   font-weight: 500;
@@ -1039,12 +1039,12 @@ Visit Country Style
 }
 
 .visit-country ul.page-numbers li a:hover {
-  background-color: #22b3c1;
+  background-color: black;
   color: #fff;
 }
 
 .visit-country ul.page-numbers li.active a {
-  background-color: #22b3c1;
+  background-color: black;
   color: #fff;
 }
 
@@ -1063,7 +1063,7 @@ Call To Action Style
 
 .call-to-action {
   margin-top: 120px;
-  background-image: url('../images/airpod1.jpg');
+  background-image: url('../images/footer3.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -1107,7 +1107,7 @@ Footer Style
 */
 
 footer {
-  background-color: #22b3c1;
+  background-color: black;
   text-align: center;
   padding: 25px 0px;
 }
@@ -1206,7 +1206,7 @@ About Page Style
 
 .about-main-content .content .main-button a {
   background-color: #fff;
-  color: #22b3c1;
+  color: black;
   border-color: #fff;
 }
 
@@ -1359,7 +1359,7 @@ About Page Style
 }
 
 .weekly-offers .item .thumb .text .main-button a:hover {
-  background-color: #22b3c1;
+  background-color: black;
   border-color: #22b3c1;
   color: #fff;
   opacity: 0.85;
@@ -1382,7 +1382,7 @@ About Page Style
   width: 46px;
   height: 46px;
   text-align: center;
-  border: 1px solid #22b3c1;
+  border: 1px solid black;
   display: inline-block;
   line-height: 44px;
   border-radius: 50%;
@@ -1397,12 +1397,12 @@ About Page Style
 .weekly-offers .owl-nav .owl-prev::after {
   font-family: "FontAwesome";
   content: '\f060'; 
-  color: #22b3c1;
+  color: black;
   font-size: 20px;
   width: 46px;
   height: 46px;
   text-align: center;
-  border: 1px solid #22b3c1;
+  border: 1px solid black;
   display: inline-block;
   line-height: 44px;
   border-radius: 50%;
@@ -1413,7 +1413,7 @@ About Page Style
 .weekly-offers .owl-nav .owl-prev:hover::after,
 .weekly-offers .owl-nav .owl-next:hover::after {
   color: #fff;
-  background-color: #22b3c1;
+  background-color: black;
 }
 
 .more-about {
@@ -1451,8 +1451,8 @@ About Page Style
 }
 
 .more-about .main-button a:hover {
-  background-color: #22b3c1;
-  border-color: #22b3c1;
+  background-color: black;
+  border-color: black;
   color: #fff;
   opacity: 0.85;
 }
@@ -1731,7 +1731,7 @@ body .options .option {
   transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
 }
 body .options .option {
-  --defaultBackground:#22b3c1;
+  --defaultBackground:black;
 }
 body .options .option.active {
   flex-grow: 10000;
@@ -1825,9 +1825,9 @@ body .options .option .label .info .sub {
 }
 
 .best-locations .main-button a:hover {
-  background-color: #22b3c1;
+  background-color: black;
   color: #fff;
-  border-color: #22b3c1;
+  border-color: black;
   opacity: 0.85;
 }
 
@@ -1873,7 +1873,7 @@ Deals Page Style
 }
 
 .search-form #search-form {
-  background-color: #22b3c1;
+  background-color: black;
   border-bottom-left-radius: 23px;
   border-bottom-right-radius: 23px;
   padding: 35px 60px;
@@ -1901,7 +1901,7 @@ Deals Page Style
 }
 
 .search-form #search-form option {
-  background-color: #1ea0ad;
+  background-color: black;
 }
 
 .search-form #search-form button {
@@ -1995,7 +1995,7 @@ Deals Page Style
   display: inline-block;
   width: 46px;
   height: 46px;
-  border: 1px solid #22b3c1;
+  border: 1px solid black;
   line-height: 44px;
   color: #22b3c1;
   text-align: center;
@@ -2007,7 +2007,7 @@ Deals Page Style
 
 .amazing-deals ul.page-numbers li.active a,
 .amazing-deals ul.page-numbers li a:hover {
-  background-color: #22b3c1;
+  background-color: black;
   color: #fff;
 }
 
@@ -2072,8 +2072,8 @@ Reservation Page Style
 }
 
 .second-page-heading .main-button a:hover {
-  border-color: #22b3c1;
-  background-color: #22b3c1;
+  border-color: black;
+  background-color: black;
   color: #fff;
 }
 
@@ -2110,7 +2110,7 @@ Reservation Page Style
 
 .more-info .info-item a {
   font-size: 15px;
-  color: #22b3c1;
+  color: black;
 }
 
 .reservation-form {
@@ -2129,7 +2129,7 @@ Reservation Page Style
 
 .reservation-form #reservation-form h4 em {
   font-style: normal;
-  color: #22b3c1;
+  color: black;
 }
 
 .reservation-form #reservation-form {
@@ -2163,8 +2163,8 @@ Reservation Page Style
 .reservation-form #reservation-form button {
   font-size: 14px;
   color: #fff;
-  background-color: #22b3c1;
-  border: 1px solid #22b3c1;
+  background-color: black;
+  border: 1px solid black;
   padding: 12px 30px;
   width: 100%;
   text-align: center;
