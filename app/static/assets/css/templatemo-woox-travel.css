@@ -97,6 +97,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
 }
 
+
 ul {
   margin-bottom: 0px;
 }
@@ -803,12 +804,12 @@ Banner Style
 #section-1 .content-slider .slider .banner .banner-inner-wrapper h2 {
   font-weight: 500;
   font-size: 20px;
-  color: #fff;
+  color: black;
   margin-bottom: 20px;
 }
 #section-1 .content-slider .slider .banner .banner-inner-wrapper h1 {
   font-size: 50px;
-  color: #fff;
+  color: black;
   font-weight: 700;
   margin-bottom: 30px;
 }
@@ -838,15 +839,15 @@ Banner Style
   background-size: cover;
 }
 .bgU{
-  background : url('../images/staff4.jpg')  no-repeat center center;
+  background : url('../images/user.jpg')  no-repeat center center;
   background-size: cover;
 }
 .bgSe{
-  background : url('../images/staff3.jpg')  no-repeat center center;
+  background : url('../images/seller4.jpeg')  no-repeat center center;
   background-size: cover;
 }
 .bgSt{
-  background : url('../images/staff5.jpg')  no-repeat center center;
+  background : url('../images/staff.avif')  no-repeat center center;
   background-size: cover;
 }
 #section-1 .content-slider nav {
@@ -2083,7 +2084,7 @@ Reservation Page Style
 
 .second-page-heading .main-button a {
   border-color: #fff;
-  color: #22b3c1;
+  color: black;
   background-color: #fff;
 }
 
