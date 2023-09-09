@@ -28,6 +28,8 @@ urlpatterns = [
     path('adminHome/',views.adminHome),
     path('home/',views.index),
     path('staffHome/',views.staffHome),
-     path('sellerHome/',views.sellerHome),
+    path('sellerHome/',views.sellerHome),
+    path('addStaff/',views.addStaff),
+    path('addAccount/',views.addAccount),
 
 ]
