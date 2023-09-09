@@ -70,7 +70,7 @@ https://templatemo.com/tm-580-woox-travel
         <div class="col-lg-12">
         </div>
         <div class="col-lg-12">
-          <form id="reservation-form" name="gs" method="post" role="search" action="/addAccount/">
+          <form id="reservation-form" name="gs" method="post" role="search" action="/addAccount/" enctype="multipart/form-data">
              {% csrf_token %}
             <div class="row">
               <div class="col-lg-6">
@@ -115,6 +115,12 @@ https://templatemo.com/tm-580-woox-travel
                     <label for="Email" class="form-label">Email</label>
                     <input type="email" name="email" class="email"  autocomplete="on" required>
                 </fieldset>
+            </div>
+            <div class="col-lg-6">
+              <fieldset>
+                  <label for="Number" class="form-label">Your Phone Number</label>
+                  <input type="number" name="phn" class="Number"  autocomplete="on" required>
+              </fieldset>
             </div>
             <div class="col-lg-6">
               <fieldset>
