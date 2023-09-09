@@ -42,7 +42,7 @@ def addAccount(request):
     b.firstname=request.POST.get('fname')
     b.email=request.POST.get('email')
     b.phone=request.POST.get('phn')
-    
+
     c.username=request.POST.get('uname')
     c.firstname=request.POST.get('fname')
     c.lastname=request.POST.get('lname')
@@ -94,6 +94,7 @@ def addAccount(request):
     d.save()
     e.save()
     return redirect('/')
+
 
     
 
