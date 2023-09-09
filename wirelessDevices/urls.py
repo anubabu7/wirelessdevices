@@ -29,7 +29,13 @@ urlpatterns = [
     path('home/',views.index),
     path('staffHome/',views.staffHome),
     path('sellerHome/',views.sellerHome),
+
     path('addStaff/',views.addStaff),
+    path('addStaffAccount/',views.addStaffAccount),
+
+    path('addSeller/',views.addSeller),
+    path('addSellerAccount/',views.addSellerAccount),
+
     path('addAccount/',views.addAccount),
 
 ]

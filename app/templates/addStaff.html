@@ -47,7 +47,7 @@ https://templatemo.com/tm-580-woox-travel
                       <li><a href="/home/">Home</a></li>
                       <li><a href="reservation.html">About</a></li>
                       <li><a href="/createAccount/" class="active">Sign up</a></li>
-                      <li><a href="/login1/">Log In</a></li>
+                      <li><a href="/">Logout</a></li>
                       <li><a href="#"></a></li>
                     </ul>   
                     <a class='menu-trigger'>
@@ -70,7 +70,7 @@ https://templatemo.com/tm-580-woox-travel
         <div class="col-lg-12">
         </div>
         <div class="col-lg-12">
-          <form id="reservation-form" name="gs" method="post" role="search" action="/addAccount/" enctype="multipart/form-data">
+          <form id="reservation-form" name="gs" method="post" role="search" action="/addStaffAccount/" enctype="multipart/form-data">
              {% csrf_token %}
             <div class="row">
               <div class="col-lg-6">
@@ -106,8 +106,8 @@ https://templatemo.com/tm-580-woox-travel
             <div class="col-lg-6">
                 <fieldset>
                     <label for="text" class="form-label">Gender</label>
-                    <input type="radio" name="gender" class="name" value="Female" autocomplete="on" required>
-                    <input type="radio" name="gender" class="Name" value="Male" autocomplete="on" required>
+                    <input type="radio" name="gender" class="name" value="Female" required>Female
+                    <input type="radio" name="gender" class="Name" value="Male"  required>Male
                 </fieldset>
             </div>
             <div class="col-lg-6">
@@ -160,6 +160,12 @@ https://templatemo.com/tm-580-woox-travel
                 </fieldset>
             </div>
             <div class="col-lg-6">
+              <fieldset>
+                  <label for="Name" class="form-label">password</label>
+                  <input type="text" name="pwd" class="Name" autocomplete="on" required>
+              </fieldset>
+          </div>
+            <div class="col-lg-6">
                 <!-- <fieldset> -->
                     <!-- <label for="image" class="form-label">Photo</label>
                     <input type="file" name="img" class="image" autocomplete="on" required> -->
@@ -169,39 +175,9 @@ https://templatemo.com/tm-580-woox-travel
             </div>
             
           
-              <!-- <div class="col-lg-6">
-                  <fieldset>
-                      <label for="chooseGuests" class="form-label">Number Of Guests</label>
-                      <select name="Guests" class="form-select" aria-label="Default select example" id="chooseGuests" onChange="this.form.click()">
-                          <option selected>ex. 3 or 4 or 5</option>
-                          <option type="checkbox" name="option1" value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4+">4+</option>
-                      </select>
-                  </fieldset>
-              </div>
-              <div class="col-lg-6">
-                <fieldset>
-                    <label for="Number" class="form-label">Check In Date</label>
-                    <input type="date" name="date" class="date" required>
-                </fieldset>
-              </div> -->
-              <!-- <div class="col-lg-12">
-                  <fieldset>
-                      <label for="chooseDestination" class="form-label">Choose Your Destination</label>
-                      <select name="Destination" class="form-select" aria-label="Default select example" id="chooseCategory" onChange="this.form.click()">
-                          <option selected>ex. Switzerland, Lausanne</option>
-                          <option value="Italy, Roma">Italy, Roma</option>
-                          <option value="France, Paris">France, Paris</option>
-                          <option value="Engaland, London">Engaland, London</option>
-                          <option value="Switzerland, Lausanne">Switzerland, Lausanne</option>
-                      </select>
-                  </fieldset>
-              </div> -->
               <div class="col-lg-12">                        
                   <fieldset>
-                      <button class="main-button">Submit</button>
+                    <input type="submit"   class="main-button" value="Submit">
                   </fieldset>
               </div>
             </div>
