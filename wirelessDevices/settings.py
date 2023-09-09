@@ -74,17 +74,17 @@ WSGI_APPLICATION = 'wirelessDevices.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         # 'NAME':'db_wirelessDevices',
-#         'USER':'root',
-#         'PASSWD':'',
-#         'HOST':'localhost',
-#         'PORT':'',
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME':'db_wirelessDevices',
+        'USER':'root',
+        'PASSWD':'',
+        'HOST':'localhost',
+        'PORT':'',
 
-#     }
-# }
+    }
+}
 
 
 # Password validation
