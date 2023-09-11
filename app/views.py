@@ -158,7 +158,7 @@ def login(request):
     if p is not None and p.is_superuser==1:
        
         return redirect('/adminHome/')
-    if p is not None and p.is_superuser==0:
+    elif p is not None and p.is_superuser==0:
         x=tbl_userAccount.objects.get(username=p)
         if x.accountType=="user":
             return redirect('/userHome/')
