@@ -29,7 +29,27 @@ urlpatterns = [
     path('home/',views.index),
     path('staffHome/',views.staffHome),
     path('sellerHome/',views.sellerHome),
+
     path('addStaff/',views.addStaff),
+    path('addStaffAccount/',views.addStaffAccount),
+
+    path('addSeller/',views.addSeller),
+    path('addSellerAccount/',views.addSellerAccount),
+
     path('addAccount/',views.addAccount),
+
+    path('viewUser/',views.viewUser),
+    path('updateStaff/',views.updateStaff),
+    path('updateStaffAdd/<int:id>',views.updateStaffAdd),
+    path('viewStaff/',views.viewStaff),
+    path('deleteStaff/<int:id>',views.deleteStaff),
+    path('viewSeller/',views.viewSeller),
+    path('deleteSeller/<int:id>',views.deleteSeller),
+    path('updateSeller/',views.updateSeller),
+    path('updateSellerAdd/<int:id>',views.updateSellerAdd),
+    path('login/',views.login),
+    
+
+    
 
 ]

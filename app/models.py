@@ -6,7 +6,7 @@ class tbl_userAccount(models.Model):
       firstname=models.CharField(max_length=30)
       email=models.CharField(max_length=30)
       phone=models.IntegerField()
-     
+      accountType=models.CharField(max_length=30)
       class Meta:
         db_table="tbl_userAccount"
 class tbl_userDetails(models.Model):
@@ -19,7 +19,7 @@ class tbl_userDetails(models.Model):
       address=models.CharField(max_length=50)
       district=models.CharField(max_length=30)
       photo=models.CharField(max_length=50)
-      accountType=models.CharField(max_length=30)
+     
       class Meta:
         db_table="tbl_userDetails"
 
@@ -33,7 +33,7 @@ class tbl_sellerDetails(models.Model):
       address=models.CharField(max_length=50)
       district=models.CharField(max_length=30)
       photo=models.CharField(max_length=50)
-      accountType=models.CharField(max_length=30)
+     
       class Meta:
         db_table="tbl_sellerDetails"
 
@@ -51,7 +51,7 @@ class tbl_staffDetails(models.Model):
       address=models.CharField(max_length=50)
       district=models.CharField(max_length=30)
       photo=models.CharField(max_length=50)
-      accountType=models.CharField(max_length=30)
+      
       class Meta:
         db_table="tbl_staffDetails"
 

@@ -1,0 +1,220 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <title>BETA</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/templatemo-woox-travel.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
+    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+<!--
+
+TemplateMo 580 Woox Travel
+
+https://templatemo.com/tm-580-woox-travel
+
+-->
+  </head>
+
+<body>
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="index.html" class="logo">
+                        <img src="{% static 'assets/images/betalogo.png' %}" alt="">
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                      <li><a href="/">Home</a></li>
+                      <li><a href="reservation.html">About</a></li>
+                      <li><a href="/createAccount/" class="active">Sign up</a></li>
+                      <li><a href="/">Logout</a></li>
+                      <li><a href="#"></a></li>
+                    </ul>   
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+
+
+ 
+
+  <div class="reservation-form">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+        </div>
+        <div class="col-lg-12">
+            <form id="reservation-form" name="gs" method="post" role="search" action="/addSellerAccount/" enctype="multipart/form-data">
+                {% csrf_token %}
+               <div class="row">
+                 <div class="col-lg-6">
+                     <fieldset>
+                         <label for="Name" class="form-label">First Name</label>
+                         <input type="text" name="fname" class="Name"  autocomplete="on" required>
+                     </fieldset>
+                 </div>
+                 <div class="col-lg-6">
+                   <fieldset>
+                       <label for="name" class="form-label">Last Name</label>
+                       <input type="text" name="lname" class="Name"  autocomplete="on" required>
+                   </fieldset>
+               </div>
+              
+              
+               <div class="col-lg-6">
+                   <fieldset>
+                       <label for="text" class="form-label">Gender</label>
+                       <input type="radio" name="gender" class="name" value="Female" required>Female
+                       <input type="radio" name="gender" class="Name" value="Male"  required>Male
+                   </fieldset>
+               </div>
+               <div class="col-lg-6">
+                   <fieldset>
+                       <label for="Email" class="form-label">Email</label>
+                       <input type="email" name="email" class="email"  autocomplete="on" required>
+                   </fieldset>
+               </div>
+               <div class="col-lg-6">
+                 <fieldset>
+                     <label for="Number" class="form-label">Your Phone Number</label>
+                     <input type="number" name="phn" class="Number"  autocomplete="on" required>
+                 </fieldset>
+               </div>
+               <div class="col-lg-6">
+                 <fieldset>
+                     <label for="Number" class="form-label">Address</label>
+                     <input type="text" name="address" class="Address"  autocomplete="on" required>
+                 </fieldset>
+               </div>
+               
+               <div class="col-lg-6">
+                   <fieldset>
+                       <label for="dropdown" class="form-label">District</label>
+                       <select name="district" autocomplete="on" required>
+                           <option>select</option>
+                           <option>Alappuzha</option>
+                           <option>Ernakulam</option>
+                           <option>Idukki</option>
+                           <option>Kannur</option>
+                           <option>Kasargod</option>
+                           <option>Kollam</option>
+                           <option>Kottayam</option>
+                           <option>Kozhikode</option>
+                           <option>Malappuram</option>
+                           <option>Palakkad</option>
+                           <option>Pathanamthita</option>
+                           <option>TVM</option>
+                           <option>Thrissur</option>
+                           <option>Wayanad</option>
+               
+                       </select><br><br>
+                       
+                   </fieldset>
+               </div>
+               <div class="col-lg-6">
+                   <fieldset>
+                       <label for="Name" class="form-label">User Name</label>
+                       <input type="text" name="uname" class="Name" autocomplete="on" required>
+                   </fieldset>
+               </div>
+               <div class="col-lg-6">
+                 <fieldset>
+                     <label for="password" class="form-label">password</label>
+                     <input type="password" name="pwd" class="Name" autocomplete="on" required>
+                 </fieldset>
+             </div>
+               <div class="col-lg-6">
+                  
+                       <label class="form-label" for="customFile">Choose a Photo</label>
+                       <input type="file" class="form-control"  name="img" id="customFile">
+                   <!-- </fieldset> -->
+               </div>
+               
+             
+                 <div class="col-lg-12">                        
+                     <fieldset>
+                       <input type="submit"   class="main-button" value="Submit">
+                     </fieldset>
+                 </div>
+               </div>
+             </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="call-to-action">
+    <div class="container">
+      <div class="row">
+        <!-- <div class="col-lg-8">
+          <h2>Are You Looking To Travel ?</h2>
+          <h4>Make A Reservation By Clicking The Button</h4>
+        </div> -->
+        <!-- <div class="col-lg-4">
+          <div class="border-button">
+            <a href="/createAccount/">Sign Up here</a>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <p>Copyright © 2036 <a href="#">WoOx Travel</a> Company. All rights reserved. 
+          <br>Design: <a href="https://templatemo.com" target="_blank" title="free CSS templates">TemplateMo</a> Distribution: <a href="https://themewagon.com target="_blank" >ThemeWagon</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+
+  <script src="{% static 'assets/js/isotope.min.js' %}"></script>
+  <script src="{% static 'assets/js/owl-carousel.js' %}"></script>
+  <script src="{% static 'assets/js/wow.js' %}"></script>
+  <script src="{% static 'assets/js/tabs.js' %}"></script>
+  <script src="{% static 'assets/js/popup.js' %}"></script>
+  <script src="{% static 'assets/js/custom.js' %}"></script>
+
+  <script>
+    $(".option").click(function(){
+      $(".option").removeClass("active");
+      $(this).addClass("active"); 
+    });
+  </script>
+
+  </body>
+
+</html>
