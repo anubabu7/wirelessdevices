@@ -8,10 +8,10 @@ from app.models import tbl_userAccount,tbl_userDetails,tbl_sellerDetails,tbl_sta
 
 # Create your views here.
 def index(request):
-    #return render(request,"index.html")
+    return render(request,"index.html")
     return render(request,"adminHome.html")
     #return render(request,"staffHome.html")
-    #return render(request,"sellerHome.html")
+    return render(request,"sellerHome.html")
     #return render(request,"userHome.html")
     
 
@@ -28,7 +28,7 @@ def sellerHome(request):
 
 #-----create account for user
 def createAccount(request):
-    return render(request,"createAccount.html")
+    return render(request,"createaccount.html")
 def addAccount(request):
     a=User()
     b=tbl_userAccount()
@@ -152,15 +152,16 @@ def addStaffAccount(request):
 def login(request):
     uname=request.POST.get('uname')
     pwd=request.POST.get('pwd')
+    print(uname,pwd,"test2")
     p=authenticate(username=uname,password=pwd)
-   
+    print(p,"test1")
     request.session['username']=uname
     if p is not None and p.is_superuser==1:
        
         return redirect('/adminHome/')
     elif p is not None and p.is_superuser==0:
         x=tbl_userAccount.objects.get(username=p)
-        if x.accountType=="user":
+        if x.accountType=="User":
             return redirect('/userHome/')
         elif x.accountType=="staff":
             return redirect('/staffHome/')

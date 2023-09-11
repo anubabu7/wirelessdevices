@@ -29,6 +29,7 @@ urlpatterns = [
     path('home/',views.index),
     path('staffHome/',views.staffHome),
     path('sellerHome/',views.sellerHome),
+    path('userHome/',views.userHome),
 
     path('addStaff/',views.addStaff),
     path('addStaffAccount/',views.addStaffAccount),
