@@ -8,8 +8,8 @@ from app.models import tbl_userAccount,tbl_userDetails,tbl_sellerDetails,tbl_sta
 
 # Create your views here.
 def index(request):
-    #return render(request,"index.html")
-    return render(request,"adminHome.html")
+    return render(request,"index.html")
+    # return render(request,"adminHome.html")
     #return render(request,"staffHome.html")
     #return render(request,"sellerHome.html")
     #return render(request,"userHome.html")
