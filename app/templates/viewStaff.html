@@ -21,8 +21,8 @@
                 <th>Address</th>
                 <th>District</th>
                 <th>Photo</th>
-                <th> Delete</th>
-                <th>Update </th>
+                <th> #</th>
+                <th># </th>
                 
             </thead>
             {% for x in data %}
@@ -41,8 +41,8 @@
                 <td> {{ x.district }}</td>
                 <td><img src="{{ x.photo }}" height="200px" width="200px"> </td>
                 
-                <td> <a href="/deleteStaff/{{ x.id }}">click</a> </td>
-                <td> <a href="/updateStaff/{{x.id}}">click</a> </td>
+                <td> <a href="/deleteStaff/{{ x.id }}">Delete</a> </td>
+                <td> <a href="/updateStaff/{{x.id}}">Update</a> </td>
 
                 
             </tr>

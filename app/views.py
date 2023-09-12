@@ -177,14 +177,14 @@ def viewUser(request):
     p=tbl_userDetails.objects.all()
     return render(request,"viewUser.html",{'data':p})
 #--------updatestaff--------
-def updateStaff(request):
-    a=request.session['username']
-    p=tbl_staffDetails.objects.get(username=a)
+def updateStaff(request,id):
+    # a=request.session['username']
+    p=tbl_staffDetails.objects.get(id=id)
     
     return render(request,"updateStaff.html",{ 'data':p})
 def updateStaffAdd(request,id):
-    a=request.session['username']
-    e=tbl_staffDetails.objects.get(username=a)
+    # a=request.session['username']
+    e=tbl_staffDetails.objects.get(id=id)
     
     try:
         e.username=request.POST.get('uname')
@@ -217,17 +217,18 @@ def updateStaffAdd(request,id):
         e.address=request.POST.get('address')
         e.district=request.POST.get('district')
         e.save()
-        return redirect('/ViewStaff/')
+        return redirect('/viewStaff/')
 
 
-def updateSeller(request):
-    a=request.session['username']
-    p=tbl_sellerDetails.objects.get(username=a)
+def updateSeller(request,id):
+    p=tbl_sellerDetails.objects.get(id=id)
+    # a=request.session['username']
+    # p=tbl_sellerDetails.objects.get(username=a)
     
     return render(request,"updateSeller.html",{ 'data':p})
 def updateSellerAdd(request,id):
-    a=request.session['username']
-    e=tbl_sellerDetails.objects.get(username=a)
+    # a=request.session['username']
+    e=tbl_sellerDetails.objects.get(id=id)
     
     try:
         e.username=request.POST.get('uname')
@@ -256,7 +257,7 @@ def updateSellerAdd(request,id):
         e.address=request.POST.get('address')
         e.district=request.POST.get('district')
         e.save()
-        return redirect('/ViewSeller/')
+        return redirect('/viewSeller/')
     
 def viewStaff(request):
     p=tbl_staffDetails.objects.all()
