@@ -50,6 +50,7 @@ urlpatterns = [
     path('updateSellerAdd/<int:id>',views.updateSellerAdd),
     path('login/',views.login),
     
+    
 
     
 
