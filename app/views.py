@@ -33,7 +33,6 @@ def addAccount(request):
     a=User()
     b=tbl_userAccount()
     c=tbl_userDetails()
-  
     a.username=request.POST.get('uname')
     pwd=request.POST.get('pwd')
     a.set_password(pwd)
@@ -44,7 +43,6 @@ def addAccount(request):
     b.email=request.POST.get('email')
     b.phone=request.POST.get('phn')
     b.accountType="User"
-
     c.username=request.POST.get('uname')
     c.firstname=request.POST.get('fname')
     c.lastname=request.POST.get('lname')
