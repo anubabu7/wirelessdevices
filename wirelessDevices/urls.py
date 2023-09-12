@@ -40,18 +40,18 @@ urlpatterns = [
     path('addAccount/',views.addAccount),
 
     path('viewUser/',views.viewUser),
-    path('updateStaff/',views.updateStaff),
+    path('updateStaff/<int:id>',views.updateStaff),
     path('updateStaffAdd/<int:id>',views.updateStaffAdd),
     path('viewStaff/',views.viewStaff),
     path('deleteStaff/<int:id>',views.deleteStaff),
     path('viewSeller/',views.viewSeller),
     path('deleteSeller/<int:id>',views.deleteSeller),
-    path('updateSeller/',views.updateSeller),
+    path('updateSeller/<int:id>',views.updateSeller),
     path('updateSellerAdd/<int:id>',views.updateSellerAdd),
     path('login/',views.login),
-    
-    
-
+    path('demo/',views.demo),
     
 
 ]
+if settings.DEBUG:
+    urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

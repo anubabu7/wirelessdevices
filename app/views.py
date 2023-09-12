@@ -9,10 +9,11 @@ from app.models import tbl_userAccount,tbl_userDetails,tbl_sellerDetails,tbl_sta
 # Create your views here.
 def index(request):
     return render(request,"index.html")
-    # return render(request,"adminHome.html")
+    #return render(request,"adminHome.html")
     #return render(request,"staffHome.html")
-    return render(request,"sellerHome.html")
+    #return render(request,"sellerHome.html")
     #return render(request,"userHome.html")
+    #return render(request,"demo.html")
     
 
 def login1(request):
@@ -102,7 +103,7 @@ def addSellerAccount(request):
     b.save()
     d.save()
  
-    return redirect('/')
+    return redirect('/adminHome/')
 # -------------------end seller account creation------------
 # ------------  staff account creation -------------------
 def addStaff(request):
@@ -142,7 +143,7 @@ def addStaffAccount(request):
     a.save()
     b.save()
     e.save()
-    return redirect('/') 
+    return redirect('/adminHome/') 
 
 #------staff account creation-------------------
 
@@ -150,9 +151,7 @@ def addStaffAccount(request):
 def login(request):
     uname=request.POST.get('uname')
     pwd=request.POST.get('pwd')
-    print(uname,pwd,"test2")
     p=authenticate(username=uname,password=pwd)
-    print(p,"test1")
     request.session['username']=uname
     if p is not None and p.is_superuser==1:
        
@@ -175,16 +174,18 @@ def login(request):
 
 def viewUser(request):
     p=tbl_userDetails.objects.all()
-    return render(request,"viewUser.html",{'data':p})
+    return render(request,"viewStaff.html",{'data':p})
 #--------updatestaff--------
-def updateStaff(request):
-    a=request.session['username']
-    p=tbl_staffDetails.objects.get(username=a)
+def updateStaff(request,id):
+    # a=request.session['username']
+    p=tbl_staffDetails.objects.get(id=id)
     
     return render(request,"updateStaff.html",{ 'data':p})
 def updateStaffAdd(request,id):
-    a=request.session['username']
-    e=tbl_staffDetails.objects.get(username=a)
+    # a=request.session['username']
+    e=tbl_staffDetails.objects.get(id=id)
+    b=tbl_userAccount.objects.get(id=id)
+
     
     try:
         e.username=request.POST.get('uname')
@@ -203,7 +204,13 @@ def updateStaffAdd(request,id):
         filename=fs.save(img.name,img)
         fileurl=fs.url(filename)
         e.photo=fileurl
+        b.username=request.POST.get('uname')
+        b.firstname=request.POST.get('fname')
+        b.email=request.POST.get('email')
+        b.phone=request.POST.get('phn')
+        b.accountType="staff"
         e.save()
+        b.save()
     except:
         e.username=request.POST.get('uname')
         e.firstname=request.POST.get('fname')
@@ -216,19 +223,26 @@ def updateStaffAdd(request,id):
         e.phone=request.POST.get('phn')
         e.address=request.POST.get('address')
         e.district=request.POST.get('district')
+        b.username=request.POST.get('uname')
+        b.firstname=request.POST.get('fname')
+        b.email=request.POST.get('email')
+        b.phone=request.POST.get('phn')
+        b.accountType="staff"
         e.save()
-        return redirect('/ViewStaff/')
+        b.save()
+        return redirect('/viewStaff/')
 
 
-def updateSeller(request):
-    a=request.session['username']
-    p=tbl_sellerDetails.objects.get(username=a)
+def updateSeller(request,id):
+    p=tbl_sellerDetails.objects.get(id=id)
+    # a=request.session['username']
+    # p=tbl_sellerDetails.objects.get(username=a)
     
     return render(request,"updateSeller.html",{ 'data':p})
 def updateSellerAdd(request,id):
-    a=request.session['username']
-    e=tbl_sellerDetails.objects.get(username=a)
-    
+    # a=request.session['username']
+    e=tbl_sellerDetails.objects.get(id=id)
+    b=tbl_userAccount.objects.get(id=id)
     try:
         e.username=request.POST.get('uname')
         e.firstname=request.POST.get('fname')
@@ -244,7 +258,13 @@ def updateSellerAdd(request,id):
         filename=fs.save(img.name,img)
         fileurl=fs.url(filename)
         e.photo=fileurl
+        b.username=request.POST.get('uname')
+        b.firstname=request.POST.get('fname')
+        b.email=request.POST.get('email')
+        b.phone=request.POST.get('phn')
+        b.accountType="seller"
         e.save()
+        b.save()
     except:
         e.username=request.POST.get('uname')
         e.firstname=request.POST.get('fname')
@@ -255,8 +275,14 @@ def updateSellerAdd(request,id):
         e.phone=request.POST.get('phn')
         e.address=request.POST.get('address')
         e.district=request.POST.get('district')
+        b.username=request.POST.get('uname')
+        b.firstname=request.POST.get('fname')
+        b.email=request.POST.get('email')
+        b.phone=request.POST.get('phn')
+        b.accountType="seller"
         e.save()
-        return redirect('/ViewSeller/')
+        b.save()
+        return redirect('/viewSeller/')
     
 def viewStaff(request):
     p=tbl_staffDetails.objects.all()
@@ -276,4 +302,12 @@ def deleteSeller(request,id):
     p.delete()
     a.delete()
     return redirect('/viewSeller/')
+
+
+
+
+
+def demo(request):
+    return render(request,"demo.html")
+
 

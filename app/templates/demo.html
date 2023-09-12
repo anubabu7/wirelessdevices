@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    </head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <body>
+        <table class="table table-striped table-bordered table-hover " >
+            <thead class="thead-dark">
+                <th>Username</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                
+                
+                
+                <th>Gender</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>District</th>
+                <th>Photo</th>
+                <th># </th>
+                <th># </th>
+                
+            </thead>
+            {% for x in data %}
+            <tr class="table-secondary">
+                <td> {{ x.username }}</td>
+                <td> {{ x.firstname }} </td>
+                <td> {{ x.lastname }} </td>
+
+                <td> {{ x.gender }} </td>
+                <td> {{ x.email }} </td>
+                
+                <td> {{ x.phone }} </td>
+                <td> {{ x.address }} </td>
+                <td> {{ x.district }}</td>
+                <td> <img src="{{ x.photo }}" height="200" width="200" alt="Texttt"> </td>
+                
+                <td> <a href="/deleteSeller/{{ x.id }}">Delete</a> </td>
+                <td><a href="/updateSeller/{{ x.id }}">Update</a></td>
+                
+            </tr>
+            {% endfor %}
+            
+        </table>
+        <a href="/adminHome/">Admin home</a><br><br>
+        <a href="/home/">Home</a>
+    </body>
+</html>
+

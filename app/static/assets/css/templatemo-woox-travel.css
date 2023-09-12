@@ -397,7 +397,7 @@ Pre-loader Style
   height: 16px;
   top: 12px;
   left: 15px;
-  background: black;
+  background: rgb(122, 37, 37);
   border-radius: 50%;
   -webkit-transform: translateX(0);
   transform: translateX(0);
@@ -420,7 +420,7 @@ Pre-loader Style
   width: 16px;
   height: 16px;
   margin-left: 16px;
-  background: #22b3c1;
+  background: #e2d81f;
   border-radius: 50%;
 }
 
@@ -818,13 +818,24 @@ Header Style
 Banner Style
 --------------------------------------------- 
 */
+#sectiontable-1 {
+  margin-top: 0px;
+  height: 100vh;
+  min-height: 700px;
+  color: #fff;
+  background-color: #e0d9d9;
+  position: relative;
+}
+
+
+
 
 #section-1 {
   margin-top: 0px;
   height: 100vh;
   min-height: 700px;
   color: #fff;
-  background-color: #222;
+  background-color: #0c0c0c;
   position: relative;
 }
 #section-1 .content-slider {
@@ -1187,6 +1198,14 @@ Visit Country Style
 Call To Action Style
 --------------------------------------------- 
 */
+.call-to-action1 {
+  margin-top: 120px;
+  
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  padding: 75px 0px;
+}
 
 .call-to-action {
   margin-top: 120px;
