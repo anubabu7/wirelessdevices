@@ -29,6 +29,7 @@ urlpatterns = [
     path('home/',views.index),
     path('staffHome/',views.staffHome),
     path('sellerHome/',views.sellerHome),
+    path('userHome/',views.userHome),
 
     path('addStaff/',views.addStaff),
     path('addStaffAccount/',views.addStaffAccount),
@@ -48,6 +49,7 @@ urlpatterns = [
     path('updateSeller/',views.updateSeller),
     path('updateSellerAdd/<int:id>',views.updateSellerAdd),
     path('login/',views.login),
+    
     
 
     
