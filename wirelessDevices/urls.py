@@ -40,14 +40,14 @@ urlpatterns = [
     path('addAccount/',views.addAccount),
 
     path('viewUser/',views.viewUser),
-    path('updateStaff/<int:id>',views.updateStaff),
-    path('updateStaffAdd/<int:id>',views.updateStaffAdd),
+    path('updateStaff/<str:username>',views.updateStaff),
+    path('updateStaffAdd/<str:username>',views.updateStaffAdd),
     path('viewStaff/',views.viewStaff),
     path('deleteStaff/<int:id>',views.deleteStaff),
     path('viewSeller/',views.viewSeller),
     path('deleteSeller/<int:id>',views.deleteSeller),
-    path('updateSeller/<int:id>',views.updateSeller),
-    path('updateSellerAdd/<int:id>',views.updateSellerAdd),
+    path('updateSeller/<str:username>',views.updateSeller),
+    path('updateSellerAdd/<str:username>',views.updateSellerAdd),
     path('login/',views.login),
     path('demo/',views.demo),
     

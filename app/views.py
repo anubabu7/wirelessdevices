@@ -176,15 +176,15 @@ def viewUser(request):
     p=tbl_userDetails.objects.all()
     return render(request,"viewStaff.html",{'data':p})
 #--------updatestaff--------
-def updateStaff(request,id):
-    # a=request.session['username']
-    p=tbl_staffDetails.objects.get(id=id)
+def updateStaff(request,username):
+    #a=request.session['username']
+    p=tbl_staffDetails.objects.get(username=username)
     
     return render(request,"updateStaff.html",{ 'data':p})
-def updateStaffAdd(request,id):
-    # a=request.session['username']
-    e=tbl_staffDetails.objects.get(id=id)
-    b=tbl_userAccount.objects.get(id=id)
+def updateStaffAdd(request,username):
+    #a=request.session['username']
+    e=tbl_staffDetails.objects.get(username=username)
+    b=tbl_userAccount.objects.get(username=username)
 
     
     try:
@@ -240,7 +240,6 @@ def updateSeller(request,id):
     
     return render(request,"updateSeller.html",{ 'data':p})
 def updateSellerAdd(request,id):
-    # a=request.session['username']
     e=tbl_sellerDetails.objects.get(id=id)
     b=tbl_userAccount.objects.get(id=id)
     try:
