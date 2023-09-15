@@ -55,6 +55,37 @@ class tbl_staffDetails(models.Model):
       class Meta:
         db_table="tbl_staffDetails"
 
+class tbl_productDetails(models.Model):
+      sellername=models.CharField(max_length=30)
+      brandname=models.CharField(max_length=30)
+      modelname=models.CharField(max_length=30)
+      color=models.CharField(max_length=30)
+      price=models.IntegerField()
+      offer=models.CharField(max_length=50)
+      battery=models.CharField(max_length=30)
+      playback=models.CharField(max_length=30)
+      status=models.CharField(max_length=30)
+      class Meta:
+          db_table="tbl_productDetails"
+
+class tbl_feedback(models.Model):
+      username=models.CharField(max_length=30)
+      brandname=models.CharField(max_length=30)
+      feedback=models.CharField(max_length=200)
+      status=models.CharField(max_length=30)
+      class Meta:
+          db_table="tbl_feedback"
+
+class tbl_offer(models.Model):
+      sellername=models.CharField(max_length=30)
+      brandname=models.CharField(max_length=30)
+      modelname=models.CharField(max_length=30)
+      offer=models.CharField(max_length=50)
+      start_date=models.DateField(max_length=30)
+      end_date=models.DateField(max_length=30)
+      class Meta:
+          db_table="tbl_offer"
+
 
 
   

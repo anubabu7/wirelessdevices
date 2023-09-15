@@ -49,7 +49,7 @@ urlpatterns = [
     path('updateSeller/<str:username>',views.updateSeller),
     path('updateSellerAdd/<str:username>',views.updateSellerAdd),
     path('login/',views.login),
-    path('demo/',views.demo),
+  
     
 
 ]

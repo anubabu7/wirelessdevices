@@ -19,7 +19,11 @@ def index(request):
 def login1(request):
      return render(request,"login1.html")
 def userHome(request):
-    return render(request,"userHome.html")
+    p=request.session['username']
+    b=tbl_userDetails.objects.get(username=p)
+    return render(request,"userHome.html",{'x':b})
+    
+  
 def adminHome(request):
     return render(request,"adminHome.html")
 def staffHome(request):
@@ -233,15 +237,13 @@ def updateStaffAdd(request,username):
         return redirect('/viewStaff/')
 
 
-def updateSeller(request,id):
-    p=tbl_sellerDetails.objects.get(id=id)
+def updateSeller(request,username):
+    p=tbl_sellerDetails.objects.get(username=username)
     # a=request.session['username']
-    # p=tbl_sellerDetails.objects.get(username=a)
-    
     return render(request,"updateSeller.html",{ 'data':p})
-def updateSellerAdd(request,id):
-    e=tbl_sellerDetails.objects.get(id=id)
-    b=tbl_userAccount.objects.get(id=id)
+def updateSellerAdd(request,username):
+    e=tbl_sellerDetails.objects.get(username=username)
+    b=tbl_userAccount.objects.get(username=username)
     try:
         e.username=request.POST.get('uname')
         e.firstname=request.POST.get('fname')
@@ -306,7 +308,28 @@ def deleteSeller(request,id):
 
 
 
-def demo(request):
-    return render(request,"demo.html")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
