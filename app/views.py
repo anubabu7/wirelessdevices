@@ -22,14 +22,32 @@ def userHome(request):
     p=request.session['username']
     b=tbl_userDetails.objects.get(username=p)
     return render(request,"userHome.html",{'x':b})
-    
-  
 def adminHome(request):
     return render(request,"adminHome.html")
 def staffHome(request):
-    return render(request,"staffHome.html")
+    p=request.session['username']
+    b=tbl_staffDetails.objects.get(username=p)
+    return render(request,"StaffHome.html",{'x':b})
+    
 def sellerHome(request):
-    return render(request,"sellerHome.html")
+    p=request.session['username']
+    b=tbl_sellerDetails.objects.get(username=p)
+    return render(request,"SellerHome.html",{'x':b})
+    
+def viewProfileUser(request):
+    p=request.session['username']
+    b=tbl_userDetails.objects.get(username=p)
+    return render(request,"viewProfileUser.html",{'x':b} )
+def viewProfileStaff(request):
+    p=request.session['username']
+    b=tbl_staffDetails.objects.get(username=p)
+    return render(request,"viewProfileStaff.html",{'x':b} )
+def viewProfileSeller(request):
+    p=request.session['username']
+    b=tbl_sellerDetails.objects.get(username=p)
+    return render(request,"viewProfileSeller.html",{'x':b} )
+    
+
 
 #-----create account for user
 def createAccount(request):
@@ -176,9 +194,7 @@ def login(request):
 
 # ---------viewuser------------
 
-def viewUser(request):
-    p=tbl_userDetails.objects.all()
-    return render(request,"viewStaff.html",{'data':p})
+
 #--------updatestaff--------
 def updateStaff(request,username):
     #a=request.session['username']
@@ -297,12 +313,65 @@ def deleteStaff(request,id):
 def viewSeller(request):
     p=tbl_sellerDetails.objects.all()
     return render(request,"viewSeller.html",{'data':p})
+def viewUser(request):
+    p=tbl_userDetails.objects.all()
+    return render(request,"viewUser.html",{'data':p})
 def deleteSeller(request,id):
     p=tbl_sellerDetails.objects.get(id=id)
     a=User.objects.get(username=p.username)
     p.delete()
     a.delete()
     return redirect('/viewSeller/')
+
+
+#-----------------updateuser----------------
+def updateUser(request,username):
+    #a=request.session['username']
+    p=tbl_userDetails.objects.get(username=username)
+    
+    return render(request,"updateUser.html",{ 'data':p})
+def updateUserAdd(request,username):
+    #a=request.session['username']
+    e=tbl_userDetails.objects.get(username=username)
+    b=tbl_userAccount.objects.get(username=username)
+    try:
+        e.username=request.POST.get('uname')
+        e.firstname=request.POST.get('fname')
+        e.lastname=request.POST.get('lname')
+        e.gender=request.POST.get('gender')
+        e.email=request.POST.get('email')
+        e.phone=request.POST.get('phn')
+        e.address=request.POST.get('address')
+        e.district=request.POST.get('district')
+        img=request.FILES['img']
+        fs=FileSystemStorage()
+        filename=fs.save(img.name,img)
+        fileurl=fs.url(filename)
+        e.photo=fileurl
+        b.username=request.POST.get('uname')
+        b.firstname=request.POST.get('fname')
+        b.email=request.POST.get('email')
+        b.phone=request.POST.get('phn')
+        b.accountType="User"
+        e.save()
+        b.save()
+    except:
+        e.username=request.POST.get('uname')
+        e.firstname=request.POST.get('fname')
+        e.lastname=request.POST.get('lname')
+        e.gender=request.POST.get('gender')
+        e.email=request.POST.get('email')
+        e.phone=request.POST.get('phn')
+        e.address=request.POST.get('address')
+        e.district=request.POST.get('district')
+        b.username=request.POST.get('uname')
+        b.firstname=request.POST.get('fname')
+        b.email=request.POST.get('email')
+        b.phone=request.POST.get('phn')
+        b.accountType="User"
+        e.save()
+        b.save()
+        return redirect('/')
 
 
 

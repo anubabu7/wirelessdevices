@@ -70,96 +70,92 @@ https://templatemo.com/tm-580-woox-travel
         <div class="col-lg-12">
         </div>
         <div class="col-lg-12">
-          <form id="reservation-form" name="gs" method="post" role="search" action="/addAccount/" enctype="multipart/form-data">
+          <form id="reservation-form" name="gs" method="post" role="search" action="/updateUserAdd/{{ data.username }}" enctype="multipart/form-data">
             {% csrf_token %}
            <div class="row">
              <div class="col-lg-6">
                  <fieldset>
                      <label for="Name" class="form-label">First Name</label>
-                     <input type="text" name="fname" class="Name"  autocomplete="on" required>
+                     <input type="text" name="fname" class="Name" value="{{ data.firstname }}" autocomplete="on" required>
                  </fieldset>
              </div>
              <div class="col-lg-6">
                <fieldset>
                    <label for="name" class="form-label">Last Name</label>
-                   <input type="text" name="lname" class="Name"  autocomplete="on" required>
+                   <input type="text" name="lname" class="Name" value="{{ data.lastname }}" autocomplete="on" required>
                </fieldset>
            </div>
           
           
            <div class="col-lg-6">
-               <fieldset>
-                   <label for="text" class="form-label">Gender</label>
-                   <input  type="radio" name="gender"  value="Female" required> female
-                   <input  type="radio" name="gender"  value="Male"  required>male
-               </fieldset>
-           </div>
+            <fieldset>
+                <label for="radio" class="form-label">Gender</label>
+                <input type="text" name="gender" class="name" value="{{ data.gender }}" required>Female
+                
+            </fieldset>
+        </div>
            <div class="col-lg-6">
                <fieldset>
                    <label for="Email" class="form-label">Email</label>
-                   <input type="email" name="email" class="email"  autocomplete="on" required>
+                   <input type="email" name="email" class="email" value="{{ data.email }}" autocomplete="on" required>
                </fieldset>
            </div>
            <div class="col-lg-6">
              <fieldset>
                  <label for="Number" class="form-label">Your Phone Number</label>
-                 <input type="number" name="phn" class="Number"  autocomplete="on" required>
+                 <input type="number" name="phn" class="Number" value="{{ data.phone }}" autocomplete="on" required>
              </fieldset>
            </div>
            <div class="col-lg-6">
              <fieldset>
-                 <label for="Number" class="form-label">Address</label>
-                 <input type="text" name="address" class="Address"  autocomplete="on" required>
+                 <label for="text" class="form-label">Address</label>
+                 <input type="text" name="address" class="Address" value="{{ data.address }}" autocomplete="on" required>
              </fieldset>
            </div>
            
            <div class="col-lg-6">
-               <fieldset>
-                   <label for="dropdown" class="form-label">District</label>
-                   <select name="district" autocomplete="on" required>
-                       <option>select</option>
-                       <option>Alappuzha</option>
-                       <option>Ernakulam</option>
-                       <option>Idukki</option>
-                       <option>Kannur</option>
-                       <option>Kasargod</option>
-                       <option>Kollam</option>
-                       <option>Kottayam</option>
-                       <option>Kozhikode</option>
-                       <option>Malappuram</option>
-                       <option>Palakkad</option>
-                       <option>Pathanamthita</option>
-                       <option>TVM</option>
-                       <option>Thrissur</option>
-                       <option>Wayanad</option>
-           
-                   </select><br><br>
-                   
-               </fieldset>
-           </div>
+            <fieldset>
+                <label for="dropdown" class="form-label">District</label>
+                <select name="district" value="{{ data.district }}" autocomplete="on" required>
+                    <option>{{ data.district }} </option>
+                    <option>Alappuzha</option>
+                    <option>Ernakulam</option>
+                    <option>Idukki</option>
+                    <option>Kannur</option>
+                    <option>Kasargod</option>
+                    <option>Kollam</option>
+                    <option>Kottayam</option>
+                    <option>Kozhikode</option>
+                    <option>Malappuram</option>
+                    <option>Palakkad</option>
+                    <option>Pathanamthita</option>
+                    <option>Thiruvananthapuram</option>
+                    <option>Thrissur</option>
+                    <option>Wayanad</option>
+        
+                </select>
+                
+            </fieldset>
+        </div>
            <div class="col-lg-6">
                <fieldset>
                    <label for="Name" class="form-label">User Name</label>
-                   <input type="text" name="uname" class="Name" autocomplete="on" required>
+                   <input type="text" name="uname" class="Name" value="{{ data.username }}" autocomplete="on" required>
                </fieldset>
            </div>
-           <div class="col-lg-6">
-             <fieldset>
-                 <label for="Name" class="form-label">password</label>
-                 <input type="password" name="pwd" class="Name" autocomplete="on" required>
-             </fieldset>
-         </div>
-           <div class="col-lg-6">
-              
-                   <label class="form-label" for="customFile">Choose a Photo</label>
-                   <input type="file" class="form-control"  name="img" id="customFile">
-               <!-- </fieldset> -->
-           </div>
+           
+         <div class="col-lg-6">
+            
+                <label class="form-label" for="customFile">Choose a Photo</label>
+                <img src="{{ data.photo }}" height="200px" width="200px">
+                <input type="file" class="form-control" value="{{ data.photo }}" name="img" id="customFile">
+            
+        </div>
            
          
              <div class="col-lg-12">                        
                  <fieldset>
-                   <input type="submit"   class="main-button" value="Submit">
+                   <input type="submit"  class="main-button" value="Submit">
                  </fieldset>
              </div>
            </div>

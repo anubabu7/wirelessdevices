@@ -49,7 +49,11 @@ urlpatterns = [
     path('updateSeller/<str:username>',views.updateSeller),
     path('updateSellerAdd/<str:username>',views.updateSellerAdd),
     path('login/',views.login),
-  
+    path('viewProfileUser/',views.viewProfileUser),
+    path('updateUser/<str:username>',views.updateUser),
+    path('updateUserAdd/<str:username>',views.updateUserAdd),
+    path('viewProfileStaff/',views.viewProfileStaff),
+    path('viewProfileSeller/',views.viewProfileSeller),
     
 
 ]

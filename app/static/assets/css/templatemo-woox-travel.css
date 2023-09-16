@@ -30,13 +30,18 @@ font & reset css
 reset
 --------------------------------------------- 
 */
+
+
 .maincap{
 margin-top: 200px;
 }
 .align{
   margin-right: 1350px;
-  margin-bottom: 260px;
+  margin-bottom: 400px;
   margin-top: 50px;
+}
+.maincap1{
+  margin-top: 300px;
 }
 .navbar {
   padding: 0;
