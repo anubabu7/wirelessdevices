@@ -43,12 +43,43 @@ https://templatemo.com/tm-580-woox-travel
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
-                    <ul class="nav">
-                      <li><a href="/">Home</a></li>
-                      <li><a href="reservation.html">About</a></li>
-                      <li><a href="/createAccount/" class="active">Sign up</a></li>
-                      <li><a href="/login1/">Log In</a></li>
-                      <li><a href="#"></a></li>
+                    <ul class="nav navbar">
+                        <li><a href="/sellerHome/">Home</a></li>
+                        <li><a href="//">About</a></li>
+                        
+                        <li><a href="/login1/">Log In</a></li>
+                        
+                        <li class="dropdown"><a href="#"><span>Product</span> <i class="bi bi-chevron-right"></i></a>
+                          <ul>
+                            <li><a href="/product/">Add</a></li>
+                            <li><a href="/viewProduct/">Update</a></li>
+                            <li><a href="/viewProduct/">Delete</a></li>
+                            
+                          </ul>
+                        </li>
+                        <li class="dropdown"><a href="#"><span>Offers</span> <i class="bi bi-chevron-right"></i></a>
+                          <ul>
+                            <li><a href="/offer/">Add</a></li>
+                            <li><a href="/viewOffer/">Update</a></li>
+                            <li><a href="/viewOffer/">Delete</a></li>
+                            
+                          </ul>
+                        </li>
+                        <li class="dropdown"><a href="#"><span>Feedbacks</span> <i class="bi bi-chevron-right"></i></a>
+                          <ul>
+                            <li><a href="//">View Feed</a></li>
+                            <li><a href="//">Remove</a></li>
+                            
+                            
+                          </ul>
+                        </li>
+                        <li class="dropdown"><a href="#"><span>More</span> <i class="bi bi-chevron-right"></i></a>
+                          <ul>
+                            <li><a href="/viewProfileSeller/">View Profile</a></li>
+                            <li><a href="/">Log Out</a></li>
+                            
+                          </ul>
+                        </li>
                     </ul>   
                     <a class='menu-trigger'>
                         <span>Menu</span>
@@ -70,92 +101,71 @@ https://templatemo.com/tm-580-woox-travel
         <div class="col-lg-12">
         </div>
         <div class="col-lg-12">
-          <form id="reservation-form" name="gs" method="post" role="search" action="/addAccount/" enctype="multipart/form-data">
+          <form id="reservation-form" name="gs" method="post" role="search" action="/updateProductAdd/{{ data.id }}" enctype="multipart/form-data">
             {% csrf_token %}
            <div class="row">
              <div class="col-lg-6">
                  <fieldset>
-                     <label for="Name" class="form-label">First Name</label>
-                     <input type="text" name="fname" class="Name"  autocomplete="on" required>
+                     <label for="Name" class="form-label">Seller Name</label>
+                     <input type="text" name="sellername" class="Name" value="{{ data.sellername }}" autocomplete="on" required>
                  </fieldset>
              </div>
              <div class="col-lg-6">
                <fieldset>
-                   <label for="name" class="form-label">Last Name</label>
-                   <input type="text" name="lname" class="Name"  autocomplete="on" required>
+                   <label for="name" class="form-label">Brand Name</label>
+                   <input type="text" name="brandname" class="Name" value="{{ data.brandname }}" autocomplete="on" required>
                </fieldset>
            </div>
           
-          
            <div class="col-lg-6">
                <fieldset>
-                   <label for="text" class="form-label">Gender</label>
-                   <input  type="radio" name="gender"  value="Female" required> female
-                   <input  type="radio" name="gender"  value="Male"  required>male
-               </fieldset>
-           </div>
-           <div class="col-lg-6">
-               <fieldset>
-                   <label for="Email" class="form-label">Email</label>
-                   <input type="email" name="email" class="email"  autocomplete="on" required>
+                   <label for="text" class="form-label">Model Name</label>
+                   <input type="text" name="modelname" class="name" value="{{ data.modelname }}" autocomplete="on" required>
                </fieldset>
            </div>
            <div class="col-lg-6">
              <fieldset>
-                 <label for="Number" class="form-label">Your Phone Number</label>
-                 <input type="tel" name="phn" class="Number"  autocomplete="on" required>
+                 <label for="text" class="form-label">Color</label>
+                 <input type="text" name="color" class="text" value="{{ data.color }}" autocomplete="on" required>
              </fieldset>
            </div>
            <div class="col-lg-6">
              <fieldset>
-                 <label for="Number" class="form-label">Address</label>
-                 <input type="text" name="address" class="Address"  autocomplete="on" required>
+                 <label for="text" class="form-label">Price</label>
+                 <input type="number" name="price" class="number" value="{{ data.price }}"  autocomplete="on" required>
              </fieldset>
-           </div>
-           
+            </div>
            <div class="col-lg-6">
                <fieldset>
-                   <label for="dropdown" class="form-label">District</label>
-                   <select name="district" autocomplete="on" required>
-                       <option>select</option>
-                       <option>Alappuzha</option>
-                       <option>Ernakulam</option>
-                       <option>Idukki</option>
-                       <option>Kannur</option>
-                       <option>Kasargod</option>
-                       <option>Kollam</option>
-                       <option>Kottayam</option>
-                       <option>Kozhikode</option>
-                       <option>Malappuram</option>
-                       <option>Palakkad</option>
-                       <option>Pathanamthita</option>
-                       <option>TVM</option>
-                       <option>Thrissur</option>
-                       <option>Wayanad</option>
-           
-                   </select><br><br>
-                   
-               </fieldset>
-           </div>
-           <div class="col-lg-6">
-               <fieldset>
-                   <label for="Name" class="form-label">User Name</label>
-                   <input type="text" name="uname" class="Name" autocomplete="on" required>
+                   <label for="Name" class="form-label">Offer</label>
+                   <input type="text" name="offer" class="text" value="{{ data.offer }}" autocomplete="on" required>
                </fieldset>
            </div>
            <div class="col-lg-6">
              <fieldset>
-                 <label for="Name" class="form-label">password</label>
-                 <input type="password" name="pwd" class="Name" autocomplete="on" required>
+                 <label for="Name" class="form-label">Battery</label>
+                 <input type="text" name="battery" class="Name" value="{{ data.battery }}" autocomplete="on" required>
              </fieldset>
          </div>
-           <div class="col-lg-6">
+         <div class="col-lg-6">
+            <fieldset>
+                <label for="Name" class="form-label">Playback</label>
+                <input type="text" name="playback" class="text" value="{{ data.playback }}" autocomplete="on" required>
+            </fieldset>
+        </div>
+        <div class="col-lg-6">
+            <fieldset>
+                <label for="Name" class="form-label">Status</label>
+                <input type="text" name="status" class="text" value="{{ data.status }}" autocomplete="on" required>
+            </fieldset>
+        </div>
+           <!-- <div class="col-lg-6">
               
                    <label class="form-label" for="customFile">Choose a Photo</label>
                    <input type="file" class="form-control"  name="img" id="customFile">
-               <!-- </fieldset> -->
-           </div>
-           
+                </fieldset> -->
+           <!-- </div> -->
+            
          
              <div class="col-lg-12">                        
                  <fieldset>

@@ -4,7 +4,7 @@ from django.core.files.storage import FileSystemStorage
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.http import HttpResponse
-from app.models import tbl_userAccount,tbl_userDetails,tbl_sellerDetails,tbl_staffDetails
+from app.models import tbl_userAccount,tbl_userDetails,tbl_sellerDetails,tbl_staffDetails,tbl_productDetails,tbl_feedback,tbl_offer
 
 # Create your views here.
 def index(request):
@@ -51,7 +51,7 @@ def viewProfileSeller(request):
 
 #-----create account for user
 def createAccount(request):
-    return render(request,"createaccount.html")
+    return render(request,"createAccount.html")
 def addAccount(request):
     a=User()
     b=tbl_userAccount()
@@ -372,6 +372,119 @@ def updateUserAdd(request,username):
         e.save()
         b.save()
         return redirect('/')
+    
+
+    #-----------PRODUCT DETAILS-----------
+def product(request):
+    return render(request,"product.html")
+def addProduct(request):
+    a=tbl_productDetails()
+    a.sellername=request.POST.get('sellername')
+    a.brandname=request.POST.get('brandname')
+    a.modelname=request.POST.get('modelname')
+    a.color=request.POST.get('color')
+    a.price=request.POST.get('price')
+    a.offer=request.POST.get('offer')
+    a.battery=request.POST.get('battery')
+    a.playback=request.POST.get('playback')
+    a.status=request.POST.get('status')
+    a.save()
+    return redirect('/sellerHome/')
+
+def viewProduct(request):
+    p=tbl_productDetails.objects.all()
+    return render(request,"viewProduct.html",{'data':p})
+def updateProduct(request,id):
+    p=tbl_productDetails.objects.get(id=id)
+    return render(request,"updateProduct.html",{'data':p})
+def updateProductAdd(request,id):
+        a=tbl_productDetails.objects.get(id=id)
+        a.sellername=request.POST.get('sellername')
+        a.brandname=request.POST.get('brandname')
+        a.modelname=request.POST.get('modelname')
+        a.color=request.POST.get('color')
+        a.price=request.POST.get('price')
+        a.offer=request.POST.get('offer')
+        a.battery=request.POST.get('battery')
+        a.playback=request.POST.get('playback')
+        a.status=request.POST.get('status')
+        a.save()
+        return redirect('/sellerHome/')
+def deleteProduct(request,id):
+    p=tbl_productDetails.objects.get(id=id)
+    p.delete()
+    return redirect('/viewProduct/')
+
+
+#------------OFFER--------------
+
+def offer(request):
+    return render(request,"offer.html")
+def addOffer(request):
+    a=tbl_offer()
+    a.sellername=request.POST.get('sellername')
+    a.brandname=request.POST.get('brandname')
+    a.modelname=request.POST.get('modelname')
+    a.offer=request.POST.get('offer')
+    a.start_date=request.POST.get('startdate')
+    a.end_date=request.POST.get('enddate')
+    
+    a.save()
+    return redirect('/sellerHome/')
+
+def viewOffer(request):
+    p=tbl_offer.objects.all()
+    return render(request,"viewOffer.html",{'data':p})
+def updateOffer(request,id):
+    p=tbl_offer.objects.get(id=id)
+    return render(request,"updateOffer.html",{'data':p})
+def updateOfferAdd(request,id):
+        a=tbl_offer.objects.get(id=id)
+        a.sellername=request.POST.get('sellername')
+        a.brandname=request.POST.get('brandname')
+        a.modelname=request.POST.get('modelname')
+        a.offer=request.POST.get('offer')
+        a.start_date=request.POST.get('startdate')
+        a.end_date=request.POST.get('enddate')
+        
+        a.save()
+        return redirect('/sellerHome/')
+def deleteOffer(request,id):
+    p=tbl_offer.objects.get(id=id)
+    p.delete()
+    return redirect('/viewOffer/')
+
+
+#----------------FEEDBACKS-------------
+
+
+def feedback(request):
+    return render(request,"feedback.html")
+def addFeedback(request):
+    a=tbl_feedback()
+    a.username=request.POST.get('sellername')
+    a.brandname=request.POST.get('brandname')
+    a.feedback=request.POST.get('feedback')
+    a.status=request.POST.get('status')
+    a.save()
+    return redirect('/userHome/')
+
+def viewFeedback(request):
+    p=tbl_feedback.objects.all()
+    return render(request,"viewFeedback.html",{'data':p})
+
+def deleteFeedback(request,id):
+    p=tbl_feedback.objects.get(id=id)
+    p.delete()
+    return redirect('/viewFeedback/')
+
+
+
+
+
+    
+
+    
 
 
 
