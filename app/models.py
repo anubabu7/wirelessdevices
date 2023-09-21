@@ -65,6 +65,7 @@ class tbl_productDetails(models.Model):
       battery=models.CharField(max_length=30)
       playback=models.CharField(max_length=30)
       status=models.CharField(max_length=30)
+      photo=models.CharField(max_length=50)
       class Meta:
           db_table="tbl_productDetails"
 
