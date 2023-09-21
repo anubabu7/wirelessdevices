@@ -376,7 +376,8 @@ def updateUserAdd(request,username):
 
     #-----------PRODUCT DETAILS-----------
 def product(request):
-    return render(request,"product.html")
+    p=request.session['username']
+    return render(request,"product.html",{'x':p})
 def addProduct(request):
     a=tbl_productDetails()
     a.sellername=request.POST.get('sellername')
