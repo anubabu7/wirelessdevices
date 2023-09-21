@@ -442,7 +442,9 @@ def deleteProduct(request,id):
 #------------OFFER--------------
 
 def offer(request):
-    return render(request,"offer.html")
+    p=request.session['username']
+    tb=tbl_productDetails.objects.filter(sellername=p)
+    return render(request,"offer.html",{'x':p,'data':tb})
 def addOffer(request):
     a=tbl_offer()
     a.sellername=request.POST.get('sellername')
