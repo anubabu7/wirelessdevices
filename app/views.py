@@ -371,7 +371,7 @@ def updateUserAdd(request,username):
         b.accountType="User"
         e.save()
         b.save()
-        return redirect('/')
+        return redirect('/userHome/')
     
 
     #-----------PRODUCT DETAILS-----------
@@ -388,6 +388,11 @@ def addProduct(request):
     a.battery=request.POST.get('battery')
     a.playback=request.POST.get('playback')
     a.status=request.POST.get('status')
+    img=request.FILES['img']
+    fs=FileSystemStorage()
+    filename=fs.save(img.name,img)
+    fileurl=fs.url(filename)
+    a.photo=fileurl
     a.save()
     return redirect('/sellerHome/')
 
@@ -399,16 +404,33 @@ def updateProduct(request,id):
     return render(request,"updateProduct.html",{'data':p})
 def updateProductAdd(request,id):
         a=tbl_productDetails.objects.get(id=id)
-        a.sellername=request.POST.get('sellername')
-        a.brandname=request.POST.get('brandname')
-        a.modelname=request.POST.get('modelname')
-        a.color=request.POST.get('color')
-        a.price=request.POST.get('price')
-        a.offer=request.POST.get('offer')
-        a.battery=request.POST.get('battery')
-        a.playback=request.POST.get('playback')
-        a.status=request.POST.get('status')
-        a.save()
+        try:
+            a.sellername=request.POST.get('sellername')
+            a.brandname=request.POST.get('brandname')
+            a.modelname=request.POST.get('modelname')
+            a.color=request.POST.get('color')
+            a.price=request.POST.get('price')
+            a.offer=request.POST.get('offer')
+            a.battery=request.POST.get('battery')
+            a.playback=request.POST.get('playback')
+            a.status=request.POST.get('status')
+            img=request.FILES['img']
+            fs=FileSystemStorage()
+            filename=fs.save(img.name,img)
+            fileurl=fs.url(filename)
+            a.photo=fileurl
+            a.save()
+        except:
+            a.sellername=request.POST.get('sellername')
+            a.brandname=request.POST.get('brandname')
+            a.modelname=request.POST.get('modelname')
+            a.color=request.POST.get('color')
+            a.price=request.POST.get('price')
+            a.offer=request.POST.get('offer')
+            a.battery=request.POST.get('battery')
+            a.playback=request.POST.get('playback')
+            a.status=request.POST.get('status')
+            a.save()
         return redirect('/sellerHome/')
 def deleteProduct(request,id):
     p=tbl_productDetails.objects.get(id=id)
