@@ -107,21 +107,30 @@ https://templatemo.com/tm-580-woox-travel
              <div class="col-lg-6">
                  <fieldset>
                      <label for="Name" class="form-label">Seller Name</label>
-                     <input type="text" name="sellername" class="Name"  autocomplete="on" required>
+                     <input type="text" name="sellername" class="Name"  value="{{ x }}"  autocomplete="on" required>
                  </fieldset>
              </div>
              <div class="col-lg-6">
                <fieldset>
                    <label for="name" class="form-label">Brand Name</label>
-                   <input type="text" name="brandname" class="Name"  autocomplete="on" required>
+                   <select  name="brandname" class="Name" > 
+                    <option>Select a Brand</option>
+                    {% for a in data %}
+                    <option value="{{ a.brandname }}">{{ a.brandname }}</option>
+                    {% endfor %}
+                   </select>
                </fieldset>
            </div>
           
            <div class="col-lg-6">
                <fieldset>
-                   <label for="text" class="form-label">Model Name</label>
-                   <input type="text" name="modelname" class="name"  autocomplete="on" required>
-               </fieldset>
+                    <label for="name" class="form-label">Model Name</label>
+                   <select  name="modelname" class="Name" > 
+                    <option>Select a Brand</option>
+                    {% for a in data %}
+                    <option value="{{ a.modelname }}">{{ a.modelname }}</option>
+                    {% endfor %}
+                   </select> </fieldset>
            </div>
            <div class="col-lg-6">
              <fieldset>
