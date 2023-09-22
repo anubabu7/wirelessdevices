@@ -9,12 +9,6 @@ from app.models import tbl_userAccount,tbl_userDetails,tbl_sellerDetails,tbl_sta
 # Create your views here.
 def index(request):
     return render(request,"index.html")
-    #return render(request,"adminHome.html")
-    #return render(request,"staffHome.html")
-    #return render(request,"sellerHome.html")
-    #return render(request,"userHome.html")
-    #return render(request,"demo.html")
-    
 
 def login1(request):
      return render(request,"login1.html")
@@ -313,6 +307,17 @@ def deleteStaff(request,id):
 def viewSeller(request):
     p=tbl_sellerDetails.objects.all()
     return render(request,"viewSeller.html",{'data':p})
+def viewSellerUser(request):
+    p=tbl_sellerDetails.objects.all()
+    return render(request,"viewSellerUser.html",{'data':p})
+def viewSellerStaff(request):
+    p=tbl_sellerDetails.objects.all()
+    return render(request,"viewSellerStaff.html",{'data':p})
+def viewProductStaff(request):
+    p=request.session['username']
+    p=tbl_productDetails.objects.filter(sellername=p)
+    return render(request,"viewProductStaff.html",{'data':p})
+
 def viewUser(request):
     p=tbl_userDetails.objects.all()
     return render(request,"viewUser.html",{'data':p})
@@ -400,6 +405,9 @@ def addProduct(request):
 def viewProduct(request):
     p=tbl_productDetails.objects.all()
     return render(request,"viewProduct.html",{'data':p})
+def viewProductUser(request):
+    p=tbl_productDetails.objects.all()
+    return render(request,"viewProductUser.html",{'data':p})
 def updateProduct(request,id):
     p=tbl_productDetails.objects.get(id=id)
     return render(request,"updateProduct.html",{'data':p})
@@ -460,6 +468,9 @@ def addOffer(request):
 def viewOffer(request):
     p=tbl_offer.objects.all()
     return render(request,"viewOffer.html",{'data':p})
+def viewOfferUser(request):
+    p=tbl_offer.objects.all()
+    return render(request,"viewOfferUser.html",{'data':p})
 def updateOffer(request,id):
     p=tbl_offer.objects.get(id=id)
     return render(request,"updateOffer.html",{'data':p})

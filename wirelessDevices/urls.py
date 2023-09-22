@@ -23,6 +23,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.index),
+  
     path('createAccount/',views.createAccount),
     path('login1/',views.login1),
     path('adminHome/',views.adminHome),
@@ -58,10 +59,12 @@ urlpatterns = [
     path('updateProduct/<int:id>',views.updateProduct),
     path('updateProductAdd/<int:id>',views.updateProductAdd),
     path('viewProduct/',views.viewProduct),
+    path('viewProductUser/',views.viewProductUser),
     path('deleteProduct/<int:id>',views.deleteProduct),
     path('offer/',views.offer),
     path('addOffer/',views.addOffer),
     path('viewOffer/',views.viewOffer),
+    path('viewOfferUser/',views.viewOfferUser),
     path('updateOffer/<int:id>',views.updateOffer),
     path('updateOfferAdd/<int:id>',views.updateOfferAdd),
     path('deleteOffer/<int:id>',views.deleteOffer),
@@ -69,6 +72,9 @@ urlpatterns = [
     path('addFeedback/',views.addFeedback),
     path('viewFeedback/',views.viewFeedback),
     path('deleteFeedback/<int:id>',views.deleteFeedback),
+    path('viewSellerUser/',views.viewSellerUser),
+    path('viewSellerStaff/',views.viewSellerStaff),
+    path('viewProductStaff/',views.viewProductStaff),
     
 
 ]

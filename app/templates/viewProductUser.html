@@ -67,44 +67,36 @@ https://templatemo.com/tm-580-woox-travel
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav navbar">
-                        <li><a href="/sellerHome/">Home</a></li>
+                        <li><a href="/userHome/">Home</a></li>
                         <li><a href="//">About</a></li>
-                        
+                        <li><a href="/createAccount/" class="active">Sign up</a></li>
                         <!-- <li><a href="/login1/">Log In</a></li> -->
-                        
-                        <li class="dropdown"><a href="#"><span>Product</span> <i class="bi bi-chevron-right"></i></a>
+                        <li class="dropdown"><a href="#"><span>Profile</span> <i class="bi bi-chevron-right"></i></a>
                           <ul>
-                            <li><a href="/product/">Add </a></li>
-                            <li><a href="/viewProduct/">Update</a></li>
-                            <li><a href="/viewProduct/">Delete</a></li>
-                            
-                          </ul>
-                        </li>
-                        <li class="dropdown"><a href="#"><span>Offers</span> <i class="bi bi-chevron-right"></i></a>
-                          <ul>
-                            <li><a href="/offer/">Add</a></li>
-                            <li><a href="/viewOffer/">Update</a></li>
-                            <li><a href="/viewOffer/">Delete</a></li>
-                            
-                          </ul>
-                        </li>
-                        <li class="dropdown"><a href="#"><span>Feedbacks</span> <i class="bi bi-chevron-right"></i></a>
-                          <ul>
-                            <li><a href="//">View Feed</a></li>
-                            <li><a href="//">Remove</a></li>
+                            <li><a href="/viewProfileUser/">View profile</a></li>
+                            <li><a href="/updateUser/{{ x.username }}">Edit Profile</a></li>
                             
                             
                           </ul>
                         </li>
-                        
+                        <li class="dropdown"><a href="#"><span>View</span> <i class="bi bi-chevron-right"></i></a>
+                          <ul>
+                            <li><a href="/viewSellerUser/">View Sellers</a></li>
+                            <li><a href="/viewProductUser/">View Products</a></li>
+                            <li><a href="/viewOfferUser/">View Offers</a></li>
+                            <li><a href="/viewFeedback/">View Feedbacks</a></li>
+                            
+                          </ul>
+                        </li>
                         <li class="dropdown"><a href="#"><span>More</span> <i class="bi bi-chevron-right"></i></a>
                           <ul>
-                            <li><a href="/viewProfileSeller/">View Profile</a></li>
-                            <li><a href="/">Log Out</a></li>
-                            
-                          </ul>
+                        <li><a href="/feedback/">Add Feedback</a></li>
+                        <li><a href="//">View Cart</a></li>
+                        <li><a href="//">View Order</a></li>
+                        </ul>
                         </li>
-                    </ul>   
+                        <li><a href="/">Log Out</a></li> 
+                    </ul>  
                     <a class='menu-trigger'>
                         <span>Menu</span>
                     </a>
@@ -137,8 +129,7 @@ https://templatemo.com/tm-580-woox-travel
                     <th>Playback</th>
                     <th>Status</th>
                     <th>Photo</th>
-                    <th># </th>
-                    <th># </th>
+                    
                     
                 </thead>
                 {% for x in data %}
@@ -157,8 +148,7 @@ https://templatemo.com/tm-580-woox-travel
                     <td> <img src="{{ x.photo }}" height="200" width="200" alt="Texttt"></td>
                      
                     
-                    <td> <a href="/deleteProduct/{{ x.id }}">Delete</a> </td>
-                    <td><a href="/updateProduct/{{ x.id }}">Update</a></td>
+                    
                     
                 </tr>
                 {% endfor %}
