@@ -74,7 +74,7 @@ urlpatterns = [
     path('deleteFeedback/<int:id>',views.deleteFeedback),
     path('viewSellerUser/',views.viewSellerUser),
     path('viewSellerStaff/',views.viewSellerStaff),
-    path('viewProductStaff/',views.viewProductStaff),
+    path('viewProductStaff/<str:username>',views.viewProductStaff),
     
 
 ]

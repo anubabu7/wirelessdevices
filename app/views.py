@@ -313,10 +313,10 @@ def viewSellerUser(request):
 def viewSellerStaff(request):
     p=tbl_sellerDetails.objects.all()
     return render(request,"viewSellerStaff.html",{'data':p})
-def viewProductStaff(request):
+def viewProductStaff(request,username):
     p=request.session['username']
-    p=tbl_productDetails.objects.filter(sellername=p)
-    return render(request,"viewProductStaff.html",{'data':p})
+    p1=tbl_productDetails.objects.filter(sellername=username)
+    return render(request,"viewProductStaff.html",{'data':p1,'x':p})
 
 def viewUser(request):
     p=tbl_userDetails.objects.all()
