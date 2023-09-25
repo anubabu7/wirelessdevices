@@ -9,7 +9,6 @@ from app.models import tbl_userAccount,tbl_userDetails,tbl_sellerDetails,tbl_sta
 # Create your views here.
 def index(request):
     return render(request,"index.html")
-
 def login1(request):
      return render(request,"login1.html")
 def userHome(request):
@@ -250,7 +249,7 @@ def updateStaffAdd(request,username):
 def updateSeller(request,username):
     p=tbl_sellerDetails.objects.get(username=username)
     # a=request.session['username']
-    return render(request,"updateSeller.html",{ 'data':p})
+    return render(request,"updateSeller.html",{'data':p})
 def updateSellerAdd(request,username):
     e=tbl_sellerDetails.objects.get(username=username)
     b=tbl_userAccount.objects.get(username=username)
@@ -334,7 +333,7 @@ def updateUser(request,username):
     #a=request.session['username']
     p=tbl_userDetails.objects.get(username=username)
     
-    return render(request,"updateUser.html",{ 'data':p})
+    return render(request,"updateUser.html",{'data':p})
 def updateUserAdd(request,username):
     #a=request.session['username']
     e=tbl_userDetails.objects.get(username=username)
@@ -513,6 +512,11 @@ def deleteFeedback(request,id):
     p=tbl_feedback.objects.get(id=id)
     p.delete()
     return redirect('/viewFeedback/')
+def addToCart(request):
+    p=request.session['username']
+    b=tbl_productDetails.objects.all()
+    return render (request,"addToCart.html",{'x':p,'data':b})
+
 
 
 

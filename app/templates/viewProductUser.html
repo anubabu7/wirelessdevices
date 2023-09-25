@@ -1,4 +1,3 @@
-
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +9,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <title>Wireless Devices</title>
+    <title>Beta</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -28,21 +27,12 @@ TemplateMo 580 Woox Travel
 https://templatemo.com/tm-580-woox-travel
 
 -->
-
   </head>
-  <style>
-    table,th{
-        margin-top: 80px;
-        border: 2px solid;
-        color: rgb(161, 161, 88);
-    
-    }
-  </style>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
 <body>
 
   <!-- ***** Preloader Start ***** -->
-   <div id="js-preloader" class="js-preloader">
+  <div id="js-preloader" class="js-preloader">
     <div class="preloader-inner">
       <span class="dot"></span>
       <div class="dots">
@@ -52,7 +42,7 @@ https://templatemo.com/tm-580-woox-travel
       </div>
     </div>
   </div>
-  ***** Preloader End ***** 
+  <!-- ***** Preloader End ***** -->
 
   <!-- ***** Header Area Start ***** -->
   <header class="header-area header-sticky">
@@ -61,42 +51,43 @@ https://templatemo.com/tm-580-woox-travel
             <div class="col-12">
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a href="/home/" class="logo">
+                    
+                    <a href="index.html" class="logo">
                         <img src="{% static 'assets/images/betalogo.png' %}" alt="">
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav navbar">
-                        <li><a href="/userHome/">Home</a></li>
-                        <li><a href="//">About</a></li>
-                        <li><a href="/createAccount/" class="active">Sign up</a></li>
-                        <!-- <li><a href="/login1/">Log In</a></li> -->
-                        <li class="dropdown"><a href="#"><span>Profile</span> <i class="bi bi-chevron-right"></i></a>
-                          <ul>
-                            <li><a href="/viewProfileUser/">View profile</a></li>
-                            <li><a href="/updateUser/{{ x.username }}">Edit Profile</a></li>
-                            
-                            
-                          </ul>
-                        </li>
-                        <li class="dropdown"><a href="#"><span>View</span> <i class="bi bi-chevron-right"></i></a>
-                          <ul>
-                            <li><a href="/viewSellerUser/">View Sellers</a></li>
-                            <li><a href="/viewProductUser/">View Products</a></li>
-                            <li><a href="/viewOfferUser/">View Offers</a></li>
-                            <li><a href="/viewFeedback/">View Feedbacks</a></li>
-                            
-                          </ul>
-                        </li>
-                        <li class="dropdown"><a href="#"><span>More</span> <i class="bi bi-chevron-right"></i></a>
-                          <ul>
-                        <li><a href="/feedback/">Add Feedback</a></li>
-                        <li><a href="//">View Cart</a></li>
-                        <li><a href="//">View Order</a></li>
+                      <li><a href="/userHome/">Home</a></li>
+                      <li><a href="//">About</a></li>
+                      <li><a href="/createAccount/" class="active">Sign up</a></li>
+                      <!-- <li><a href="/login1/">Log In</a></li> -->
+                      <li class="dropdown"><a href="#"><span>Profile</span> <i class="bi bi-chevron-right"></i></a>
+                        <ul>
+                          <li><a href="/viewProfileUser/">View profile</a></li>
+                          <li><a href="/updateUser/{{ x.username }}">Edit Profile</a></li>
+                          
+                          
                         </ul>
-                        </li>
-                        <li><a href="/">Log Out</a></li> 
-                    </ul>  
+                      </li>
+                      <li class="dropdown"><a href="#"><span>View</span> <i class="bi bi-chevron-right"></i></a>
+                        <ul>
+                          <li><a href="/viewSellerUser/">View Sellers</a></li>
+                          <li><a href="/viewProductUser/">View Products</a></li>
+                          <li><a href="/viewOfferUser/">View Offers</a></li>
+                          <li><a href="/viewFeedback/">View Feedbacks</a></li>
+                          
+                        </ul>
+                      </li>
+                      <li class="dropdown"><a href="#"><span>More</span> <i class="bi bi-chevron-right"></i></a>
+                        <ul>
+                      <li><a href="/feedback/">Add Feedback</a></li>
+                      <li><a href="//">View Cart</a></li>
+                      <li><a href="//">View Order</a></li>
+                      </ul>
+                      </li>
+                      <li><a href="/">Log Out</a></li> 
+                  </ul>   
                     <a class='menu-trigger'>
                         <span>Menu</span>
                     </a>
@@ -108,61 +99,237 @@ https://templatemo.com/tm-580-woox-travel
   </header>
   <!-- ***** Header Area End ***** -->
 
-  <!-- ***** Main Banner Area Start ***** -->
-  <section id="section-1" >
-    <div class="content-slider">
-      <input type="radio" id="banner1" class="sec-1-input" name="banner" checked>
-      <input type="radio" id="banner2" class="sec-1-input" name="banner">
-      <input type="radio" id="banner3" class="sec-1-input" name="banner">
-      <input type="radio" id="banner4" class="sec-1-input" name="banner">
-      <div class="slider">
-        <div class="banner-inner-wrapper header-text ">
-            <table class="table table-striped table-bordered table-hover " >
-                <thead class="thead-primary">
-                    <th>Seller Name</th>
-                    <th>Brand Name</th>
-                    <th>Model Name</th>
-                    <th>Color</th>
-                    <th>Price</th>
-                    <th>Offer</th>
-                    <th>Battery</th>
-                    <th>Playback</th>
-                    <th>Status</th>
-                    <th>Photo</th>
-                    
-                    
-                </thead>
-                {% for x in data %}
-                <tr class="table-bordered table-warning">
-                    <td> {{ x.sellername }}</td>
-                    <td> {{ x.brandname }} </td>
-                    <td> {{ x.modelname }} </td>
-    
-                    <td> {{ x.color }} </td>
-                    <td> {{ x.price }} </td>
-                    
-                    <td> {{ x.offer }} </td>
-                    <td> {{ x.battery }} </td>
-                    <td> {{ x.playback }}</td>
-                    <td> {{ x.status }}</td>
-                    <td> <img src="{{ x.photo }}" height="200" width="200" alt="Texttt"></td>
-                     
-                    
-                    
-                    
-                </tr>
-                {% endfor %}
-                
-            </table>
-        
+  <div class="page-heading">
+    <div class="container">
+      <div class="row">
+        <!-- <div class="col-lg-12">
+          <h4>Discover Our Weekly Offers</h4>
+          <h2>Amazing Prices &amp; More</h2>
+          <div class="border-button"><a href="about.html">Discover More</a></div>
+        </div> -->
+      </div>
+    </div>
+  </div>
+
+  <div class="search-form">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <form id="search-form" name="gs" method="submit" role="search" action="#">
+            <div class="row">
+              <div class="col-lg-2">
+                <h4>Sort Deals By:</h4>
+              </div>
+              <div class="col-lg-4">
+                  <fieldset>
+                      <select name="Location" class="form-select" aria-label="Default select example" id="chooseLocation" onChange="this.form.click()">
+                          <option selected>Brand</option>
+                          <option type="checkbox" name="option1" value="Italy">Italy</option>
+                          <option value="France">OPPO</option>
+                          <option value="Switzerland">Realme</option>
+                          <option value="Thailand">Samsung</option>
+                          <option value="Australia">Sony</option>
+                          <option value="India">Truke</option>
+                          <option value="Indonesia">boAt</option>
+                          <option value="Malaysia">skullcandy</option>
+                          <option value="Singapore">Oneplus</option>
+                      </select>
+                  </fieldset>
+              </div>
+              <div class="col-lg-4">
+                  <fieldset>
+                      <select name="Price" class="form-select" aria-label="Default select example" id="choosePrice" onChange="this.form.click()">
+                          <option selected>Price Range</option>
+                          <option value="100">Rs500 - Rs1500</option>
+                          <option value="250">Rs1500 - Rs2500</option>
+                          <option value="500">Rs2500 - Rs5000</option>
+                          <option value="1000">RS5000 - Rs10000</option>
+                          <option value="2500+">Rs10000+</option>
+                      </select>
+                  </fieldset>
+              </div>
+              <div class="col-lg-2">                        
+                  <fieldset>
+                      <button class="border-button">Search Results</button>
+                  </fieldset>
+              </div>
+            </div>
+          </form>
         </div>
-      </div> 
+      </div>
+    </div>
+  </div>
+
+  <div class="amazing-deals">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+          <div class="section-heading text-center">
+            <h2>Best Weekly Offers </h2>
+            <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p> -->
+          </div>
+        </div>
+        {% for x in data %}
+        <div class="col-lg-6 col-sm-6">
+          <div class="item">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="image">
+                  <img src="{{ x.photo }}" height="200" width="200" alt="Texttt">
+                </div>
+              </div>
+              <div class="col-lg-6 align-self-center">
+                <div class="content">
+                  <span class="info">*Limited Offer Today {{ x.offer }}</span>
+                  <!-- <h4>Glasgow City Lorem</h4> -->
+                  <div class="row">
+                    <!-- <div class="col-6">
+                      <i class="fa fa-clock"></i>
+                      <span class="list">Battery:{{ x.battery }}</span>
+                    </div> -->
+                    <div class="col-6">
+                      <i class="fa fa-map"></i>
+                      <span class="list">{{ x.playback }} playback</span>
+                    </div>
+                  </div>
+                  <p>{{ x.modelname }}</p>
+                  <div class="main-button">
+                    <a href="/addToCart/">Add to Cart</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        <!-- <div class="col-lg-6 col-sm-6">
+          <div class="item">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="image">
+                  <img src="{% static 'assets/images/deals-02.jpg' %}" alt="">
+                </div>
+              </div>
+              <div class="col-lg-6 align-self-center">
+                <div class="content">
+                  <span class="info">*Today & Tomorrow Only</span>
+                  <h4>Venezia Italy Ipsum</h4>
+                  <div class="row">
+                    <div class="col-6">
+                      <i class="fa fa-clock"></i>
+                      <span class="list">5 Days</span>
+                    </div>
+                    <div class="col-6">
+                      <i class="fa fa-map"></i>
+                      <span class="list">Daily Places</span>
+                    </div>
+                  </div>
+                  <p>Lorem ipsum dolor sit amet dire consectetur adipiscing elit.</p>
+                  <div class="main-button">
+                    <a href="reservation.html">Make a Reservation</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+        <!-- <div class="col-lg-6 col-sm-6">
+          <div class="item">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="image">
+                  <img src="{% static 'assets/images/deals-03.jpg' %}" alt="">
+                </div>
+              </div>
+              <div class="col-lg-6 align-self-center">
+                <div class="content">
+                  <span class="info">**Undefined</span>
+                  <h4>Glasgow City Lorem</h4>
+                  <div class="row">
+                    <div class="col-6">
+                      <i class="fa fa-clock"></i>
+                      <span class="list">5 Days</span>
+                    </div>
+                    <div class="col-6">
+                      <i class="fa fa-map"></i>
+                      <span class="list">Daily Places</span>
+                    </div>
+                  </div>
+                  <p>Lorem ipsum dolor sit amet dire consectetur adipiscing elit.</p>
+                  <div class="main-button">
+                    <a href="reservation.html">Make a Reservation</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-sm-6">
+          <div class="item">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="image">
+                  <img src="{%static 'assets/images/deals-04.jpg' %}" alt="">
+                </div>
+              </div>
+              <div class="col-lg-6 align-self-center">
+                <div class="content">
+                  <span class="info">*Offer Until 24th March</span>
+                  <h4>Glasgow City Lorem</h4>
+                  <div class="row">
+                    <div class="col-6">
+                      <i class="fa fa-clock"></i>
+                      <span class="list">5 Days</span>
+                    </div>
+                    <div class="col-6">
+                      <i class="fa fa-map"></i>
+                      <span class="list">Daily Places</span>
+                    </div>
+                  </div>
+                  <p>This free CSS template is provided by Template Mo website.</p>
+                  <div class="main-button">
+                    <a href="reservation.html">Make a Reservation</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-12">
+          <ul class="page-numbers">
+            <li><a href="#"><i class="fa fa-arrow-left"></i></a></li>
+            <li><a href="#">1</a></li>
+            <li class="active"><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#"><i class="fa fa-arrow-right"></i></a></li>
+          </ul>
+        </div>-->
+        </div>
+        </div>
+        </div>
       
+
+  <div class="call-to-action">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <h2>Activate Voice assistant with one click</h2>
+          <!-- <h4>Make A Order By Clicking The Button</h4> -->
+        </div>
+        <div class="col-lg-4">
+          <div class="border-button">
+            <a href="/createAccount/">Create Account?</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <footer>
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <p>Copyright © 2036 <a href="#">BETA</a> Company. All rights reserved. 
+          <p>Copyright © 2036 <a href="#">Beta</a> Company. All rights reserved. 
           <br>Design: <a href="https://templatemo.com" target="_blank" title="free CSS templates">TemplateMo</a> Distribution: <a href="https://themewagon.com target="_blank" >ThemeWagon</a></p>
         </div>
       </div>
@@ -183,17 +350,9 @@ https://templatemo.com/tm-580-woox-travel
   <script src="{% static 'assets/js/custom.js' %}"></script>
 
   <script>
-    function bannerSwitcher() {
-      next = $('.sec-1-input').filter(':checked').next('.sec-1-input');
-      if (next.length) next.prop('checked', true);
-      else $('.sec-1-input').first().prop('checked', true);
-    }
-
-    var bannerTimer = setInterval(bannerSwitcher, 5000);
-
-    $('nav .controls label').click(function() {
-      clearInterval(bannerTimer);
-      bannerTimer = setInterval(bannerSwitcher, 5000)
+    $(".option").click(function(){
+      $(".option").removeClass("active");
+      $(this).addClass("active"); 
     });
   </script>
 

@@ -65,7 +65,7 @@ class tbl_productDetails(models.Model):
       battery=models.CharField(max_length=30)
       playback=models.CharField(max_length=30)
       status=models.CharField(max_length=30)
-      photo=models.CharField(max_length=50)
+      photo=models.ImageField()
       class Meta:
           db_table="tbl_productDetails"
 
@@ -82,10 +82,34 @@ class tbl_offer(models.Model):
       brandname=models.CharField(max_length=30)
       modelname=models.CharField(max_length=30)
       offer=models.CharField(max_length=50)
-      start_date=models.DateField(max_length=30)
-      end_date=models.DateField(max_length=30)
+      start_date=models.DateField()
+      end_date=models.DateField()
       class Meta:
           db_table="tbl_offer"
+class tbl_cart(models.Model):
+    username=models.CharField(max_length=30)
+    productname=models.CharField(max_length=30)
+    brandname=models.CharField(max_length=30)
+    sellername=models.CharField(max_length=30)
+    quantity=models.IntegerField()
+    price=models.IntegerField()
+    total_amount=models.CharField(max_length=30)
+    status=models.CharField(max_length=30)
+    class Meta:
+        db_table="tbl_cart"
+class tbl_order(models.Model):
+    username=models.CharField(max_length=30)
+    productname=models.CharField(max_length=30)
+    brandname=models.CharField(max_length=30)
+    sellername=models.CharField(max_length=30)
+    order_date=models.DateField()
+    status=models.CharField(max_length=30)
+    payment=models.CharField(max_length=30)
+    total_amount=models.CharField(max_length=30)
+    class Meta:
+        db_table="tbl_order"
+
+
 
 
 

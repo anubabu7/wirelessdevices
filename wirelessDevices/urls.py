@@ -75,6 +75,7 @@ urlpatterns = [
     path('viewSellerUser/',views.viewSellerUser),
     path('viewSellerStaff/',views.viewSellerStaff),
     path('viewProductStaff/<str:username>',views.viewProductStaff),
+    path('addToCart/',views.addToCart),
     
 
 ]

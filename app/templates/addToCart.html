@@ -101,69 +101,58 @@ https://templatemo.com/tm-580-woox-travel
         <div class="col-lg-12">
         </div>
         <div class="col-lg-12">
-          <form id="reservation-form" name="gs" method="post" role="search" action="/updateProductAdd/{{ data.id }}" enctype="multipart/form-data">
+          <form id="reservation-form" name="gs" method="post" role="search" action="/addToCart1/" enctype="multipart/form-data">
             {% csrf_token %}
            <div class="row">
+            <div class="col-lg-6">
+                <fieldset>
+                    <label for="Name" class="form-label">User  Name</label>
+                    <input type="text" name="uname" class="Name" value="{{ x }}" autocomplete="on" required>
+                </fieldset>
+            </div>
              <div class="col-lg-6">
                  <fieldset>
                      <label for="Name" class="form-label">Seller Name</label>
-                     <input type="text" name="sellername" class="Name" value="{{ data.sellername }}" autocomplete="on" required>
+                     <input type="text" name="sellername" class="Name"  autocomplete="on" required>
                  </fieldset>
              </div>
              <div class="col-lg-6">
                <fieldset>
                    <label for="name" class="form-label">Brand Name</label>
-                   <input type="text" name="brandname" class="Name" value="{{ data.brandname }}" autocomplete="on" required>
+                   <input type="text" name="brandname" class="Name"  autocomplete="on" required>
                </fieldset>
            </div>
           
            <div class="col-lg-6">
                <fieldset>
-                   <label for="text" class="form-label">Model Name</label>
-                   <input type="text" name="modelname" class="name" value="{{ data.modelname }}" autocomplete="on" required>
+                   <label for="text" class="form-label">Product Name</label>
+                   <input type="text" name="productname" class="name"  autocomplete="on" required>
                </fieldset>
            </div>
            <div class="col-lg-6">
              <fieldset>
-                 <label for="text" class="form-label">Color</label>
-                 <input type="text" name="color" class="text" value="{{ data.color }}" autocomplete="on" required>
+                 <label for="text" class="form-label">Quantity</label>
+                 <input type="number" name="number" class="text"  autocomplete="on" required>
              </fieldset>
            </div>
            <div class="col-lg-6">
              <fieldset>
                  <label for="text" class="form-label">Price</label>
-                 <input type="number" name="price" class="number" value="{{ data.price }}"  autocomplete="on" required>
+                 <input type="number" name="price" class="number"   autocomplete="on" required>
              </fieldset>
             </div>
-           <div class="col-lg-6">
-               <fieldset>
-                   <label for="Name" class="form-label">Offer</label>
-                   <input type="text" name="offer" class="text" value="{{ data.offer }}" autocomplete="on" required>
-               </fieldset>
-           </div>
-           <div class="col-lg-6">
-             <fieldset>
-                 <label for="Name" class="form-label">Battery</label>
-                 <input type="text" name="battery" class="Name" value="{{ data.battery }}" autocomplete="on" required>
-             </fieldset>
-         </div>
-         <div class="col-lg-6">
-            <fieldset>
-                <label for="Name" class="form-label">Playback</label>
-                <input type="text" name="playback" class="text" value="{{ data.playback }}" autocomplete="on" required>
-            </fieldset>
-        </div>
+           
         <div class="col-lg-6">
             <fieldset>
                 <label for="Name" class="form-label">Status</label>
-                <input type="text" name="status" class="text" value="{{ data.status }}" autocomplete="on" required>
+                <input type="text" name="status" class="text"  autocomplete="on" required>
             </fieldset>
         </div>
         <div class="col-lg-6">
           
               <label class="form-label" for="customFile">Choose a Photo</label>
-              <img src="{{ data.photo }}" height="200px" width="200px">
-              <input type="file" class="form-control" value="{{ data.photo }}" name="img" id="customFile">
+              
+              <input type="file" class="form-control" name="img" id="customFile">
           
       </div>
          
@@ -197,7 +186,7 @@ https://templatemo.com/tm-580-woox-travel
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <p>Copyright © 2036 <a href="/">Beta</a> Company. All rights reserved. 
+          <p>Copyright © 2036 <a href="#">Beta</a> Company. All rights reserved. 
           <br>Design: <a href="https://templatemo.com" target="_blank" title="free CSS templates">TemplateMo</a> Distribution: <a href="https://themewagon.com target="_blank" >ThemeWagon</a></p>
         </div>
       </div>
