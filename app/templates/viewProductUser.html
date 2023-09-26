@@ -183,10 +183,10 @@ https://templatemo.com/tm-580-woox-travel
                   <span class="info">*Limited Offer Today {{ x.offer }}</span>
                   <!-- <h4>Glasgow City Lorem</h4> -->
                   <div class="row">
-                    <!-- <div class="col-6">
+                    <div class="col-6">
                       <i class="fa fa-clock"></i>
-                      <span class="list">Battery:{{ x.battery }}</span>
-                    </div> -->
+                      <span class="list">{{ x.brandname }}</span>
+                    </div>
                     <div class="col-6">
                       <i class="fa fa-map"></i>
                       <span class="list">{{ x.playback }} playback</span>
@@ -194,7 +194,7 @@ https://templatemo.com/tm-580-woox-travel
                   </div>
                   <p>{{ x.modelname }}</p>
                   <div class="main-button">
-                    <a href="/addToCart/">Add to Cart</a>
+                    <a href="/addToCart/{{ x.id }}">Add to Cart</a>
                   </div>
                 </div>
               </div>

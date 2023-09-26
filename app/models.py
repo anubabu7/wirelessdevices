@@ -88,7 +88,7 @@ class tbl_offer(models.Model):
           db_table="tbl_offer"
 class tbl_cart(models.Model):
     username=models.CharField(max_length=30)
-    productname=models.CharField(max_length=30)
+    modelname=models.CharField(max_length=30)
     brandname=models.CharField(max_length=30)
     sellername=models.CharField(max_length=30)
     quantity=models.IntegerField()

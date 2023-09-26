@@ -4,7 +4,7 @@ from django.core.files.storage import FileSystemStorage
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.http import HttpResponse
-from app.models import tbl_userAccount,tbl_userDetails,tbl_sellerDetails,tbl_staffDetails,tbl_productDetails,tbl_feedback,tbl_offer
+from app.models import tbl_userAccount,tbl_userDetails,tbl_sellerDetails,tbl_staffDetails,tbl_productDetails,tbl_feedback,tbl_offer,tbl_cart,tbl_order
 
 # Create your views here.
 def index(request):
@@ -497,7 +497,7 @@ def feedback(request):
     return render(request,"feedback.html")
 def addFeedback(request):
     a=tbl_feedback()
-    a.username=request.POST.get('sellername')
+    a.username=request.POST.get('uname')
     a.brandname=request.POST.get('brandname')
     a.feedback=request.POST.get('feedback')
     a.status=request.POST.get('status')
@@ -512,10 +512,27 @@ def deleteFeedback(request,id):
     p=tbl_feedback.objects.get(id=id)
     p.delete()
     return redirect('/viewFeedback/')
-def addToCart(request):
+def addToCart(request,id):
     p=request.session['username']
-    b=tbl_productDetails.objects.all()
+    
+    b=tbl_productDetails.objects.get(id=id)
     return render (request,"addToCart.html",{'x':p,'data':b})
+def addToCart1(request):
+    a=tbl_cart()
+    a.username=request.POST.get('uname')
+    a.brandname=request.POST.get('brandname')
+    a.sellername=request.POST.get('sellername')
+    a.modelname=request.POST.get('modelname')
+    a.quantity=request.POST.get('quantity')
+
+    a.price=request.POST.get('price')
+    
+    a.total_amount=request.POST.get('total')
+    a.status="In-Cart"
+    a.save()
+    return redirect('/userHome/')
+
+
 
 
 
