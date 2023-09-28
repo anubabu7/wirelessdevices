@@ -524,8 +524,8 @@ def addToCart1(request):
     a.quantity=request.POST.get('quantity')
 
     a.price=request.POST.get('price')
-    
-    a.total_amount=request.POST.get('total')
+    # totl =a.price*a.quantity
+    a.total_amount= 
     a.status="In-Cart"
     a.save()
     return redirect('/userHome/')
