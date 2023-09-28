@@ -14,6 +14,7 @@ def login1(request):
 def userHome(request):
     p=request.session['username']
     b=tbl_userDetails.objects.get(username=p)
+    
     return render(request,"userHome.html",{'x':b})
 def adminHome(request):
     return render(request,"adminHome.html")
@@ -39,8 +40,6 @@ def viewProfileSeller(request):
     p=request.session['username']
     b=tbl_sellerDetails.objects.get(username=p)
     return render(request,"viewProfileSeller.html",{'x':b} )
-    
-
 
 #-----create account for user
 def createAccount(request):
@@ -65,7 +64,6 @@ def addAccount(request):
     c.gender=request.POST.get('gender')
     c.email=request.POST.get('email')
     c.phone=request.POST.get('phn')
-    c.accountType="user"
     c.address=request.POST.get('address')
     c.district=request.POST.get('district')
     img=request.FILES['img']
@@ -532,9 +530,10 @@ def addToCart1(request):
     a.save()
     return redirect('/userHome/')
 
-
-
-
+def viewCart(request):
+    a=request.session['username']
+    p=tbl_cart.objects.filter(username=a)
+    return render(request,"viewCart.html",{'data':p})
 
 
 
