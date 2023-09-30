@@ -99,7 +99,7 @@ class tbl_cart(models.Model):
         db_table="tbl_cart"
 class tbl_order(models.Model):
     username=models.CharField(max_length=30)
-    productname=models.CharField(max_length=30)
+    modelname=models.CharField(max_length=30)
     brandname=models.CharField(max_length=30)
     sellername=models.CharField(max_length=30)
     order_date=models.DateField()

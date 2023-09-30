@@ -45,45 +45,35 @@ https://templatemo.com/tm-580-woox-travel
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav navbar">
-                      <li><a href="/sellerHome/">Home</a></li>
+                      <li><a href="/userHome/">Home</a></li>
                       <li><a href="//">About</a></li>
                       
-                      
-                      
-                      <li class="dropdown"><a href="#"><span>Product</span> <i class="bi bi-chevron-right"></i></a>
+                      <li class="dropdown"><a href="#"><span>Profile</span> <i class="bi bi-chevron-right"></i></a>
                         <ul>
-                          <li><a href="/product/">Add </a></li>
-                          <li><a href="/viewProduct/">Update</a></li>
-                          <li><a href="/viewProduct/">Delete</a></li>
+                          <li><a href="/viewProfileUser/">View profile</a></li>
+                          <li><a href="/updateUser/{{ x.username }}">Edit Profile</a></li>
+                          
                           
                         </ul>
                       </li>
-                      <li class="dropdown"><a href="#"><span>Offers</span> <i class="bi bi-chevron-right"></i></a>
+                      <li class="dropdown"><a href="#"><span>View</span> <i class="bi bi-chevron-right"></i></a>
                         <ul>
-                          <li><a href="/offer/">Add</a></li>
-                          <li><a href="/viewOffer/">Update</a></li>
-                          <li><a href="/viewOffer/">Delete</a></li>
-                          
-                        </ul>
-                      </li>
-                      <li class="dropdown"><a href="#"><span>Feedbacks</span> <i class="bi bi-chevron-right"></i></a>
-                        <ul>
-                          <li><a href="/viewFeedback/">View Feed</a></li>
-                          <li><a href="/viewFeedback/">Remove</a></li>
-                          
+                          <li><a href="/viewSellerUser/">View Sellers</a></li>
+                          <li><a href="/viewProductUser/">View Products</a></li>
+                          <li><a href="/viewOfferUser/">View Offers</a></li>
+                          <li><a href="/viewFeedback/">View Feedbacks</a></li>
                           
                         </ul>
                       </li>
                       <li class="dropdown"><a href="#"><span>More</span> <i class="bi bi-chevron-right"></i></a>
                         <ul>
-                          <li><a href="/viewProfileSeller/">View Profile</a></li>
-                          <li><a href="/">Log Out</a></li>
-                          
-                        </ul>
+                      <li><a href="/feedback/">Add Feedback</a></li>
+                      <li><a href="//">View Cart</a></li>
+                      <li><a href="//">View Order</a></li>
+                      </ul>
                       </li>
-                      
-                      
-                  </ul>   
+                      <li><a href="/">Log Out</a></li> 
+                  </ul> 
                     <a class='menu-trigger'>
                         <span>Menu</span>
                     </a>
@@ -104,73 +94,61 @@ https://templatemo.com/tm-580-woox-travel
         <div class="col-lg-12">
         </div>
         <div class="col-lg-12">
-          <form id="reservation-form" name="gs" method="post" role="search" action="/addProduct/" enctype="multipart/form-data">
+          <form id="reservation-form" name="gs" method="post" role="search" action="/addOrder/" enctype="multipart/form-data">
             {% csrf_token %}
            <div class="row">
+            <div class="col-lg-6">
+                <fieldset>
+                    <label for="Name" class="form-label">User  Name</label>
+                    <input type="text" name="uname" class="Name" value="{{ x }}" autocomplete="on" required>
+                </fieldset>
+            </div>
              <div class="col-lg-6">
                  <fieldset>
-                     <label for="Name" class="form-label">Seller Name </label>
-                     <input type="text" name="sellername" class="Name" value="{{ x }}"  autocomplete="on" required>
+                     <label for="Name" class="form-label">Seller Name</label>
+                     <input type="text" name="sellername" class="Name" value="{{ data.sellername }}" autocomplete="on" required>
                  </fieldset>
              </div>
              <div class="col-lg-6">
                <fieldset>
                    <label for="name" class="form-label">Brand Name</label>
-                   <input type="text" name="brandname" class="Name"  autocomplete="on" required>
+                   <input type="text" name="brandname" class="Name" value="{{ data.brandname }}"  autocomplete="on" required>
                </fieldset>
            </div>
           
            <div class="col-lg-6">
                <fieldset>
                    <label for="text" class="form-label">Model Name</label>
-                   <input type="text" name="modelname" class="name"  autocomplete="on" required>
+                   <input type="text" name="modelname" class="name" value="{{ data.modelname }}" autocomplete="on" required>
                </fieldset>
            </div>
            <div class="col-lg-6">
              <fieldset>
-                 <label for="text" class="form-label">Color</label>
-                 <input type="text" name="color" class="text"  autocomplete="on" required>
+                 <label for="text" class="form-label">Order Date</label>
+                 <input type="date" name="date" class="text"  autocomplete="on" required>
              </fieldset>
            </div>
-           <div class="col-lg-6">
+           <!-- <div class="col-lg-6">
              <fieldset>
-                 <label for="text" class="form-label">Price</label>
-                 <input type="number" name="price" class="number"  autocomplete="on" required>
+                 <label for="text" class="form-label">Status</label>
+                 <input type="text" name="status" class="text"  autocomplete="on" required>
              </fieldset>
-            </div>
-           <div class="col-lg-6">
-               <fieldset>
-                   <label for="Name" class="form-label">Offer</label>
-                   <input type="text" name="offer" class="text" autocomplete="on" required>
-               </fieldset>
-           </div>
-           <div class="col-lg-6">
-             <fieldset>
-                 <label for="Name" class="form-label">Battery</label>
-                 <input type="text" name="battery" class="Name" autocomplete="on" required>
-             </fieldset>
-         </div>
-         <div class="col-lg-6">
-            <fieldset>
-                <label for="Name" class="form-label">Playback</label>
-                <input type="text" name="playback" class="text" autocomplete="on" required>
-            </fieldset>
-        </div>
-        <div class="col-lg-6">
-            <fieldset>
-                <label for="Name" class="form-label">Status</label>
-                <input type="text" name="status" class="text" autocomplete="on" required>
-            </fieldset>
-        </div>
-        
-        <div class="col-lg-6">
-                
-          <label class="form-label" for="customFile">Choose a Photo</label>
-          <input type="file" class="form-control"  name="img" id="customFile">
-      
-        </div>
-  
+            </div> -->
             
+            <div class="col-lg-6">
+                <fieldset>
+                    <label for="text" class="form-label">Payment</label>
+                    <input type="text" name="payment" class="text"   autocomplete="on" required>
+                </fieldset>
+               </div>
+               <div class="col-lg-6">
+                <fieldset>
+                    <label for="text" class="form-label">Total Amount</label>
+                    <input type="number" name="total" class="text" value="{{ data.total_amount }}"  autocomplete="on" required>
+                </fieldset>
+               </div>
+        
+        
          
              <div class="col-lg-12">                        
                  <fieldset>
@@ -202,7 +180,7 @@ https://templatemo.com/tm-580-woox-travel
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <p>Copyright © 2036 <a href="#">WoOx Travel</a> Company. All rights reserved. 
+          <p>Copyright © 2036 <a href="#">Beta</a> Company. All rights reserved. 
           <br>Design: <a href="https://templatemo.com" target="_blank" title="free CSS templates">TemplateMo</a> Distribution: <a href="https://themewagon.com target="_blank" >ThemeWagon</a></p>
         </div>
       </div>

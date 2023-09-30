@@ -14,6 +14,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">  
 
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
@@ -69,8 +70,7 @@ https://templatemo.com/tm-580-woox-travel
                     <ul class="nav navbar">
                         <li><a href="/userHome/">Home</a></li>
                         <li><a href="//">About</a></li>
-                        <li><a href="/createAccount/" class="active">Sign up</a></li>
-                        <!-- <li><a href="/login1/">Log In</a></li> -->
+                        
                         <li class="dropdown"><a href="#"><span>Profile</span> <i class="bi bi-chevron-right"></i></a>
                           <ul>
                             <li><a href="/viewProfileUser/">View profile</a></li>
@@ -91,8 +91,8 @@ https://templatemo.com/tm-580-woox-travel
                         <li class="dropdown"><a href="#"><span>More</span> <i class="bi bi-chevron-right"></i></a>
                           <ul>
                         <li><a href="/feedback/">Add Feedback</a></li>
-                        <li><a href="//">View Cart</a></li>
-                        <li><a href="//">View Order</a></li>
+                        <li><a href="/viewCart/">View Cart</a></li>
+                        <li><a href="/viewOrder/">View Order</a></li>
                         </ul>
                         </li>
                         <li><a href="/">Log Out</a></li> 

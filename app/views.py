@@ -525,7 +525,8 @@ def addToCart1(request):
 
     a.price=request.POST.get('price')
     # totl =a.price*a.quantity
-    a.total_amount= 222
+    a.total_amount= int(a.price)*int(a.quantity)+int(50)
+    
     a.status="In-Cart"
     a.save()
     return redirect('/userHome/')
@@ -533,7 +534,30 @@ def addToCart1(request):
 def viewCart(request):
     a=request.session['username']
     p=tbl_cart.objects.filter(username=a)
-    return render(request,"viewCart.html",{'data':p})
+    return render(request,"viewCart.html",{'data':p,'y':a})
+def delCartItem(request,id):
+    p=tbl_cart.objects.get(id=id)
+    p.delete()
+    return redirect('/viewCart/')
+def order(request,id):
+    a=request.session['username']
+    p=tbl_cart.objects.get(id=id)
+    return render(request,"order.html",{'data':p,'x':a})
+    
+def addOrder(request):
+    a=tbl_order()
+    a.username=request.POST.get('uname')
+    a.brandname=request.POST.get('brandname')
+    a.sellername=request.POST.get('sellername')
+    a.modelname=request.POST.get('modelname')
+    a.order_date=request.POST.get('date')
+    a.status="In-Order"
+    a.payment=request.POST.get('payment')
+    a.total_amount=request.POST.get('total')
+    a.save()
+    return redirect('/userHome/')
+
+
 
 
 
