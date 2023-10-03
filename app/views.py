@@ -519,47 +519,59 @@ def addToCart(request,id):
     b=tbl_productDetails.objects.get(id=id)
     return render (request,"addToCart.html",{'x':p,'data':b})
 def addToCart1(request):
-    a=tbl_cart()
-    try:
+        a=tbl_cart()
+    # try:
 
         a.username=request.POST.get('uname')
-        a.brandname=request.POST.get('brandname')
+        a.product_id=request.POST.get('pdtId')
         a.sellername=request.POST.get('sellername')
-        a.modelname=request.POST.get('modelname')
         a.quantity=request.POST.get('quantity')
-        img=request.FILES['img']
-        fs=FileSystemStorage()
-        filename=fs.save(img.name,img)
-        fileurl=fs.url(filename)
-        a.photo=fileurl  
-        a.price=request.POST.get('price')
-        # totl =a.price*a.quantity
-        a.total_amount= int(a.price)*int(a.quantity)
+        price=request.POST.get('price')
+        a.total_amount= int(price)*int(a.quantity)
         a.status="In-Cart"
         a.save()
-    except:
-        a.username=request.POST.get('uname')
-        a.brandname=request.POST.get('brandname')
-        a.sellername=request.POST.get('sellername')
-        a.modelname=request.POST.get('modelname')
-        a.quantity=request.POST.get('quantity')
-        a.price=request.POST.get('price')
-        # totl =a.price*a.quantity
-        a.total_amount= int(a.price)*int(a.quantity)
-        a.status="In-Cart"
-        a.save()
+        return redirect('/userHome/')
 
-    return redirect('/userHome/')
+        # a.modelname=request.POST.get('modelname')
+       
+        # img=request.FILES['img']
+        
+        # fs=FileSystemStorage()
+        # filename=fs.save(img.name,img)
+        # fileurl=fs.url(filename)
+        # a.photo=fileurl  
+        
+        # totl =a.price*a.quantity
+        
+    # except:
+    #     print("test 2")
+    #     a.username=request.POST.get('uname')
+    #     a.brandname=request.POST.get('brandname')
+    #     a.sellername=request.POST.get('sellername')
+    #     a.modelname=request.POST.get('modelname')
+    #     a.quantity=request.POST.get('quantity')
+    #     a.price=request.POST.get('price')
+    #     # totl =a.price*a.quantity
+    #     a.total_amount= int(a.price)*int(a.quantity)
+    #     a.status="In-Cart"
+    #     a.save()
+
 
 def viewCart(request):
     a=request.session['username']
     p=tbl_cart.objects.filter(username=a)
+    pdt1=[]
+    for x in p:
+        pdt=tbl_productDetails.objects.filter(id=x.product_id)
+       
+       
+    print(pdt,"test3")
     sum =0
     qty=0
     for x in p:
         sum=sum + int(x.total_amount)
         qty= qty + int(x.quantity)
-    return render(request,"viewCart.html",{'data':p,'y':a,'m':sum ,'q':qty})
+    return render(request,"viewCart.html",{'data':p,'y':a,'m':sum ,'q':qty,'pd':pdt})
 def delCartItem(request,id):
     p=tbl_cart.objects.get(id=id)
     p.delete()
