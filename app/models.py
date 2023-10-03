@@ -65,7 +65,7 @@ class tbl_productDetails(models.Model):
       battery=models.CharField(max_length=30)
       playback=models.CharField(max_length=30)
       status=models.CharField(max_length=30)
-      photo=models.ImageField()
+      photo=models.CharField(max_length=50)
       class Meta:
           db_table="tbl_productDetails"
 
@@ -93,8 +93,10 @@ class tbl_cart(models.Model):
     sellername=models.CharField(max_length=30)
     quantity=models.IntegerField()
     price=models.IntegerField()
+    
     total_amount=models.CharField(max_length=30)
     status=models.CharField(max_length=30)
+    photo=models.CharField(max_length=50)
     class Meta:
         db_table="tbl_cart"
 class tbl_order(models.Model):
@@ -106,6 +108,7 @@ class tbl_order(models.Model):
     status=models.CharField(max_length=30)
     payment=models.CharField(max_length=30)
     total_amount=models.CharField(max_length=30)
+    photo=models.CharField(max_length=50)
     class Meta:
         db_table="tbl_order"
 

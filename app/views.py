@@ -9,6 +9,8 @@ from app.models import tbl_userAccount,tbl_userDetails,tbl_sellerDetails,tbl_sta
 # Create your views here.
 def index(request):
     return render(request,"index.html")
+    
+
 def login1(request):
      return render(request,"login1.html")
 def userHome(request):
@@ -110,8 +112,6 @@ def addSellerAccount(request):
     filename=fs.save(img.name,img)
     fileurl=fs.url(filename)
     d.photo=fileurl
- 
-   
     a.save()
     b.save()
     d.save()
@@ -310,6 +310,9 @@ def viewSellerUser(request):
 def viewSellerStaff(request):
     p=tbl_sellerDetails.objects.all()
     return render(request,"viewSellerStaff.html",{'data':p})
+def viewProductStaff1(request):
+    p=tbl_productDetails.objects.all()
+    return render(request,"viewProductStaff1.html",{'data':p})
 def viewProductStaff(request,username):
     p=request.session['username']
     p1=tbl_productDetails.objects.filter(sellername=username)
@@ -517,24 +520,46 @@ def addToCart(request,id):
     return render (request,"addToCart.html",{'x':p,'data':b})
 def addToCart1(request):
     a=tbl_cart()
-    a.username=request.POST.get('uname')
-    a.brandname=request.POST.get('brandname')
-    a.sellername=request.POST.get('sellername')
-    a.modelname=request.POST.get('modelname')
-    a.quantity=request.POST.get('quantity')
+    try:
 
-    a.price=request.POST.get('price')
-    # totl =a.price*a.quantity
-    a.total_amount= int(a.price)*int(a.quantity)+int(50)
-    
-    a.status="In-Cart"
-    a.save()
+        a.username=request.POST.get('uname')
+        a.brandname=request.POST.get('brandname')
+        a.sellername=request.POST.get('sellername')
+        a.modelname=request.POST.get('modelname')
+        a.quantity=request.POST.get('quantity')
+        img=request.FILES['img']
+        fs=FileSystemStorage()
+        filename=fs.save(img.name,img)
+        fileurl=fs.url(filename)
+        a.photo=fileurl  
+        a.price=request.POST.get('price')
+        # totl =a.price*a.quantity
+        a.total_amount= int(a.price)*int(a.quantity)
+        a.status="In-Cart"
+        a.save()
+    except:
+        a.username=request.POST.get('uname')
+        a.brandname=request.POST.get('brandname')
+        a.sellername=request.POST.get('sellername')
+        a.modelname=request.POST.get('modelname')
+        a.quantity=request.POST.get('quantity')
+        a.price=request.POST.get('price')
+        # totl =a.price*a.quantity
+        a.total_amount= int(a.price)*int(a.quantity)
+        a.status="In-Cart"
+        a.save()
+
     return redirect('/userHome/')
 
 def viewCart(request):
     a=request.session['username']
     p=tbl_cart.objects.filter(username=a)
-    return render(request,"viewCart.html",{'data':p,'y':a})
+    sum =0
+    qty=0
+    for x in p:
+        sum=sum + int(x.total_amount)
+        qty= qty + int(x.quantity)
+    return render(request,"viewCart.html",{'data':p,'y':a,'m':sum ,'q':qty})
 def delCartItem(request,id):
     p=tbl_cart.objects.get(id=id)
     p.delete()
@@ -546,18 +571,47 @@ def order(request,id):
     
 def addOrder(request):
     a=tbl_order()
-    a.username=request.POST.get('uname')
-    a.brandname=request.POST.get('brandname')
-    a.sellername=request.POST.get('sellername')
-    a.modelname=request.POST.get('modelname')
-    a.order_date=request.POST.get('date')
-    a.status="In-Order"
-    a.payment=request.POST.get('payment')
-    a.total_amount=request.POST.get('total')
-    a.save()
+    try:
+
+        a.username=request.POST.get('uname')
+        a.brandname=request.POST.get('brandname')
+        a.sellername=request.POST.get('sellername')
+        a.modelname=request.POST.get('modelname')
+        a.order_date=request.POST.get('date')
+        a.status="In-Order"
+        
+        a.payment=request.POST.get('payment')
+        a.total_amount=request.POST.get('total')
+        img=request.FILES['img']
+        fs=FileSystemStorage()
+        filename=fs.save(img.name,img)
+        fileurl=fs.url(filename)
+        a.photo=fileurl
+        a.save()
+    except:
+        a.username=request.POST.get('uname')
+        a.brandname=request.POST.get('brandname')
+        a.sellername=request.POST.get('sellername')
+        a.modelname=request.POST.get('modelname')
+        a.order_date=request.POST.get('date')
+        a.status="In-Order"
+        
+        a.payment=request.POST.get('payment')
+        a.total_amount=request.POST.get('total')
+        a.save()
     return redirect('/userHome/')
+def viewOrder(request):
+    a=request.session['username']
+    p=tbl_cart.objects.filter(username=a)
+    sum =0
+    for x in p:
+        sum=sum + int(x.total_amount)
+    return render(request,"viewOrder.html",{'data':p,'y':a,'m':sum })
 
-
+def demo(request):
+    p=tbl_productDetails.objects.all()
+    return render(request,"demo.html",{'data':p})
+   
 
 
 

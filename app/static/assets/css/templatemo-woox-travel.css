@@ -276,9 +276,9 @@ body {
 
 .border-button a {
   font-size: 14px;
-  color: black;
+  color: rgb(203, 167, 167);
   background-color: transparent;
-  border: 1px solid black;
+  border: 1px solid white;
   padding: 12px 30px;
   display: inline-block;
   border-radius: 25px;
@@ -290,9 +290,10 @@ body {
   overflow: hidden;
 }
 
+
 .border-button a:hover {
-  background-color: black;
-  color: #fff;
+  background-color: white(130, 30, 30);
+  color: #af1919;
 }
 
 .main-button a {
