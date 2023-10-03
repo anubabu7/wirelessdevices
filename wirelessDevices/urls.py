@@ -75,12 +75,16 @@ urlpatterns = [
     path('viewSellerUser/',views.viewSellerUser),
     path('viewSellerStaff/',views.viewSellerStaff),
     path('viewProductStaff/<str:username>',views.viewProductStaff),
+    path('viewProductStaff1/',views.viewProductStaff1),
+
     path('addToCart/<int:id>',views.addToCart),
     path('addToCart1/',views.addToCart1),
     path('viewCart/',views.viewCart),
     path('delCartItem/<int:id>',views.delCartItem),
     path('order/<int:id>',views.order),
-     path('addOrder/',views.addOrder),
+    path('addOrder/',views.addOrder),
+    path('viewOrder/',views.viewOrder),
+    path('demo/',views.demo),
     
 
 ]

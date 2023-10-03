@@ -69,7 +69,7 @@ https://templatemo.com/tm-580-woox-travel
                         <ul>
                       <li><a href="/feedback/">Add Feedback</a></li>
                       <li><a href="/viewCart/">View Cart</a></li>
-                      <li><a href="//">View Order</a></li>
+                      <li><a href="/viewOrder/">View Order</a></li>
                       </ul>
                       </li>
                       <li><a href="/">Log Out</a></li> 
@@ -134,11 +134,13 @@ https://templatemo.com/tm-580-woox-travel
                  <input type="number" name="price" class="number" value="{{ data.price }}"  autocomplete="on" required>
              </fieldset>
             </div>
-            
-           
-        
-        
-         
+            <div class="col-lg-6">
+          
+              <label class="form-label" for="customFile">Photo</label>
+              <img src="{{ data.photo }}" height="200px" width="200px">
+              <input type="file" class="form-control" value="{{ data.photo }}" name="img" id="customFile">
+          
+      </div>
              <div class="col-lg-12">                        
                  <fieldset>
                    <input type="submit"   class="main-button" value="Submit">

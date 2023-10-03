@@ -127,9 +127,9 @@ https://templatemo.com/tm-580-woox-travel
                         
                         {% for x in data %}
                         <div class="row mb-4 d-flex justify-content-between align-items-center">
-                          <!-- <div class="col-md-2 col-lg-2 col-xl-2">
-                            <h6 class="mb-0 text-muted">{{ y }}</h6>
-                          </div> -->
+                          <div class="col-md-2 col-lg-2 col-xl-2">
+                            <img src="{{ x.photo }}"    alt="not found" height="100px" width="100px">
+                          </div> 
                           <div class="col-md-3 col-lg-3 col-xl-3">
                             <h6 class="text-muted">{{ x.brandname }}</h6>
                             <h6 class="text-black mb-0">{{ x.modelname }}</h6>
@@ -150,6 +150,7 @@ https://templatemo.com/tm-580-woox-travel
                           </div>
                           <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
                             <h6 class="mb-0">{{ x.price }}</h6>
+                            <h6 class="mb-0">{{ x.quantity }}qty</h6>
                           </div>
                           <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
                             <h6 class="mb-0"><a href="/delCartItem/{{ x.id }}"><button type="button" class="btn btn-light"><span class="bi bi-trash"></span></button></a></h6>
@@ -159,11 +160,7 @@ https://templatemo.com/tm-580-woox-travel
                             
                           </div>
                         </div>
-      
                         <hr class="my-4">
-      
-                        
-      
                         {% endfor %}
                         <hr class="my-4">
       
@@ -180,31 +177,23 @@ https://templatemo.com/tm-580-woox-travel
                         <hr class="my-4">
       
                         <div class="d-flex justify-content-between mb-4">
-                          <h5 class="text-uppercase">items {{x.quantity }}</h5>
-                          <h5>{{ x.total_amount }}</h5>
+                          <h5 class="text-uppercase">items {{ q }}</h5>
+                          <h5>{{ sum }}</h5>
                         </div>
-      
                         <h5 class="text-uppercase mb-3">Shipping</h5>
-      
                         <div class="mb-4 pb-2">
                           <select class="select">
-                            <option value="1">Standard-Delivery- Rs50 </option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                            <option value="4">Four</option>
+                            <option value="1">Standard-Delivery-Rs50 </option>
+                            <option value="2">Fastest-Deliivery-Rs75</option>
+                            <option value="3">Express-Delivery-Rs100</option>
                           </select>
                         </div>
-      
-                        
-      
                         <div class="d-flex justify-content-between mb-5">
                           <h5 class="text-uppercase">Total price</h5>
-                          <h5>{{ x.total_amount }}</h5>
+                          <h5>{{ m }}</h5>
                         </div>
-      
                         <a href="/order/{{ x.id }}"><button type="button" class="btn btn-dark btn-block btn-lg"
                           data-mdb-ripple-color="dark">Register</button></a>
-      
                       </div>
                       {% endfor %}
                     </div>
@@ -227,8 +216,6 @@ https://templatemo.com/tm-580-woox-travel
 </div>
 </div>
 </footer>
-
-
 <!-- Scripts -->
 <!-- Bootstrap core JavaScript -->
 <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
