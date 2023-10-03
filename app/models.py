@@ -88,15 +88,16 @@ class tbl_offer(models.Model):
           db_table="tbl_offer"
 class tbl_cart(models.Model):
     username=models.CharField(max_length=30)
-    modelname=models.CharField(max_length=30)
-    brandname=models.CharField(max_length=30)
+    product_id=models.CharField(max_length=30)
+    # modelname=models.CharField(max_length=30)
+    # brandname=models.CharField(max_length=30)
     sellername=models.CharField(max_length=30)
     quantity=models.IntegerField()
-    price=models.IntegerField()
+    # price=models.IntegerField()
     
     total_amount=models.CharField(max_length=30)
     status=models.CharField(max_length=30)
-    photo=models.CharField(max_length=50)
+    # photo=models.CharField(max_length=50)
     class Meta:
         db_table="tbl_cart"
 class tbl_order(models.Model):
