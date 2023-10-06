@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.http import HttpResponse
 from app.models import tbl_userAccount,tbl_userDetails,tbl_sellerDetails,tbl_staffDetails,tbl_productDetails,tbl_feedback,tbl_offer,tbl_cart,tbl_order
-
+import datetime
 # Create your views here.
 def index(request):
     return render(request,"index.html")
@@ -537,7 +537,7 @@ def addToCart1(request):
         
 def viewCart(request):
     a=request.session['username']
-    p=tbl_cart.objects.filter(username=a)
+    p=tbl_cart.objects.filter(username=a,status="In-Cart")
    
     sum =0
     qty=0
@@ -555,39 +555,27 @@ def order(request,id):
     return render(request,"order.html",{'data':p,'x':a})
     
 def addOrder(request):
+    id=request.POST.get('id')
+    p=tbl_cart.objects.get(id=id)
     a=tbl_order()
-    try:
-
-        a.username=request.POST.get('uname')
-        a.brandname=request.POST.get('brandname')
-        a.sellername=request.POST.get('sellername')
-        a.modelname=request.POST.get('modelname')
-        a.order_date=request.POST.get('date')
-        a.status="In-Order"
-        
-        a.payment=request.POST.get('payment')
-        a.total_amount=request.POST.get('total')
-        img=request.FILES['img']
-        fs=FileSystemStorage()
-        filename=fs.save(img.name,img)
-        fileurl=fs.url(filename)
-        a.photo=fileurl
-        a.save()
-    except:
-        a.username=request.POST.get('uname')
-        a.brandname=request.POST.get('brandname')
-        a.sellername=request.POST.get('sellername')
-        a.modelname=request.POST.get('modelname')
-        a.order_date=request.POST.get('date')
-        a.status="In-Order"
-        
-        a.payment=request.POST.get('payment')
-        a.total_amount=request.POST.get('total')
-        a.save()
+   
+    a.username=request.POST.get('uname')
+    a.brandname=request.POST.get('brandname')
+    a.sellername=p.sellername
+    a.modelname=p.modelname
+    a.order_date=datetime.datetime.now() 
+    a.status="In-Order"
+    a.payment=request.POST.get('payment')
+    a.total_amount=request.POST.get('total')
+    a.photo=p.photo
+    p.status="In-order"
+    p.save()
+    a.save()
+   
     return redirect('/userHome/')
 def viewOrder(request):
     a=request.session['username']
-    p=tbl_cart.objects.filter(username=a)
+    p=tbl_order.objects.filter(username=a,status="In-order")
     sum =0
     for x in p:
         sum=sum + int(x.total_amount)
