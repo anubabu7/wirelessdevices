@@ -126,16 +126,15 @@ https://templatemo.com/tm-580-woox-travel
                         <hr class="my-4">
                         
                         {% for x in data %}
-                        {% for y in pd %}
                         
                         <div class="row mb-4 d-flex justify-content-between align-items-center">
                           <div class="col-md-2 col-lg-2 col-xl-2">
                             <a href="/viewProductImg/{{ y.id }}" alt="not found">
-                            <img src=" {{ y.photo }} "    alt="not found" height="100px" width="100px"></a>
+                            <img src=" {{ x.photo }} "    alt="not found" height="100px" width="100px"></a>
                           </div> 
                           <div class="col-md-3 col-lg-3 col-xl-3">
-                            <h6 class="text-muted">{{ y.brandname }}</h6>
-                            <h6 class="text-black mb-0">{{ y.modelname }}</h6>
+                            <h6 class="text-muted">{{ x.brandname }}</h6>
+                            <h6 class="text-black mb-0">{{ x.modelname }}</h6>
                           </div>
                           <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
                             <button class="btn btn-link px-2"
@@ -152,7 +151,7 @@ https://templatemo.com/tm-580-woox-travel
                             </button>
                           </div>
                           <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                            <h6 class="mb-0">{{ y.price }}</h6>
+                            <h6 class="mb-0">{{ x.price }}</h6>
                             <h6 class="mb-0">{{ x.quantity }} qty</h6>
                           </div>
                           <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
@@ -164,7 +163,6 @@ https://templatemo.com/tm-580-woox-travel
                           </div>
                         </div>
                         <hr class="my-4">
-                        {% endfor %}
                         {% endfor %}
                         <hr class="my-4">
       
