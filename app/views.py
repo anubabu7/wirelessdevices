@@ -619,10 +619,15 @@ def viewOrder(request):
     for x in p:
         sum=sum + int(x.total_amount)
     return render(request,"viewOrder.html",{'data':p,'y':a,'m':sum })
+def viewProductImg(request,id):
+    b=tbl_productDetails.objects.get(id=id)
+    return render(request,"viewProductImg.html",{'x':b})
+
 
 def demo(request):
     p=tbl_productDetails.objects.all()
     return render(request,"demo.html",{'data':p})
+
    
 
 

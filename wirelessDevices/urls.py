@@ -85,6 +85,7 @@ urlpatterns = [
     path('addOrder/',views.addOrder),
     path('viewOrder/',views.viewOrder),
     path('demo/',views.demo),
+    path('viewProductImg/<int:id>',views.viewProductImg),
     
 
 ]
