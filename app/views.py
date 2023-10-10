@@ -4,11 +4,12 @@ from django.core.files.storage import FileSystemStorage
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.http import HttpResponse
-from app.models import tbl_userAccount,tbl_userDetails,tbl_sellerDetails,tbl_staffDetails,tbl_productDetails,tbl_feedback,tbl_offer,tbl_cart,tbl_order
+from app.models import tbl_userAccount,tbl_userDetails,tbl_sellerDetails,tbl_staffDetails,tbl_productDetails,tbl_feedback,tbl_offer,tbl_cart,tbl_order,tbl_staffDuties
 import datetime
 # Create your views here.
 def index(request):
-    return render(request,"index.html")
+   return render(request,"index.html")
+   
     
 
 def login1(request):
@@ -583,6 +584,33 @@ def viewOrder(request):
 def viewProductImg(request,id):
     b=tbl_productDetails.objects.get(id=id)
     return render(request,"viewProductImg.html",{'x':b})
+def viewOrderStaff(request):
+    a=request.session['username']
+    p=tbl_order.objects.filter(sellername=a,status="In-order")
+    return render(request,"viewOrderStaff.html",{'data':p,'y':a})
+def viewOrderStaffAssign(request):
+    a=request.session['username']
+    p=tbl_order.objects.filter(sellername=a,status="Order Approved")
+    return render(request,"viewOrderStaffAssign.html",{'data':p,'y':a})
+
+def assignStaff(request):
+    p=request.session['username']
+    tb=tbl_staffDetails.objects.all()
+    b=tbl_staffDuties()
+    b.sellername=request.POST.get('sellername')
+    b.staffname=request.POST.get('uname')
+    b.assigned_date=datetime.datetime.now() 
+    b.status="Pending"
+    b.instructions=request.POST.get('instructions')
+    b.order_id=request.POST.get('orderid')
+    b.save()
+    return render(request,"assignStaff.html",{'x':p,'data':tb})
+def approveOrder(request,id):
+    p=tbl_order.objects.get(id=id)
+    p.status="Order Approved"
+    p.save()
+    return redirect('/viewOrderStaffAssign/')
+
 
 
 def demo(request):

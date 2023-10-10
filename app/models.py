@@ -112,6 +112,17 @@ class tbl_order(models.Model):
     photo=models.CharField(max_length=50)
     class Meta:
         db_table="tbl_order"
+class tbl_staffDuties(models.Model):
+    sellername=models.CharField(max_length=30)
+    staffname=models.CharField(max_length=30)
+    assigned_date=models.DateField()
+    instructions=models.CharField(max_length=100)
+    order_id=models.IntegerField()
+    status=models.CharField(max_length=30)
+    class Meta:
+        db_table="tbl_staffDuties"
+
+    
 
 
 

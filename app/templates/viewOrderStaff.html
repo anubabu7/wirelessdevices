@@ -1,0 +1,212 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <title>BETA</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">  
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/templatemo-woox-travel.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
+    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+<!--
+
+TemplateMo 580 Woox Travel
+
+https://templatemo.com/tm-580-woox-travel
+
+-->
+
+  </head>
+  <style>
+    table,th{
+        margin-top: 80px;
+        border: 2px solid;
+        color: rgb(161, 161, 88);
+    
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<body>
+
+  <!-- ***** Preloader Start ***** -->
+   <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  ***** Preloader End ***** 
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="/home/" class="logo">
+                        <img src="{% static 'assets/images/betalogo.png' %}" alt="">
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav navbar">
+                      <li><a href="/sellerHome/">Home</a></li>
+                      <li><a href="//">About</a></li>
+                      
+                      
+                      
+                      <li class="dropdown"><a href="#"><span>Product</span> <i class="bi bi-chevron-right"></i></a>
+                        <ul>
+                          <li><a href="/product/">Add </a></li>
+                          <li><a href="/viewProduct/">Update</a></li>
+                          <li><a href="/viewProduct/">Delete</a></li>
+                          
+                        </ul>
+                      </li>
+                      <li class="dropdown"><a href="#"><span>Offers</span> <i class="bi bi-chevron-right"></i></a>
+                        <ul>
+                          <li><a href="/offer/">Add</a></li>
+                          <li><a href="/viewOffer/">Update</a></li>
+                          <li><a href="/viewOffer/">Delete</a></li>
+                          
+                        </ul>
+                      </li>
+                      <li class="dropdown"><a href="#"><span>Feedbacks</span> <i class="bi bi-chevron-right"></i></a>
+                        <ul>
+                          <li><a href="/viewFeedback/">View Feed</a></li>
+                          <li><a href="/viewFeedback/">Remove</a></li>
+                          
+                          
+                        </ul>
+                      </li>
+                      <li class="dropdown"><a href="#"><span>More</span> <i class="bi bi-chevron-right"></i></a>
+                        <ul>
+                          <li><a href="/viewProfileSeller/">View Profile</a></li>
+                          <li><a href="/viewOrderStaff/">View Orders</a></li>
+
+                          <li><a href="/">Log Out</a></li>
+                          
+                        </ul>
+                      </li>
+                      
+                      
+                  </ul>   
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+
+  <!-- ***** Main Banner Area Start ***** -->
+  <section id="section-1" >
+    <div class="content-slider">
+      <input type="radio" id="banner1" class="sec-1-input" name="banner" checked>
+      <input type="radio" id="banner2" class="sec-1-input" name="banner">
+      <input type="radio" id="banner3" class="sec-1-input" name="banner">
+      <input type="radio" id="banner4" class="sec-1-input" name="banner">
+      <div class="slider">
+        <div class="banner-inner-wrapper header-text ">
+            <table class="table table-striped table-bordered table-hover " >
+                <thead class="thead-primary">
+                    <th>User Name</th>
+                    <th>Model Name</th>
+                    <th>Brand Name</th>
+                    <th>Seller Name</th>
+                    <th>Order Date</th>
+                    <th>Status</th>
+                    <th>Payment</th>
+                    <th>Total Amount</th>
+                    <th>Photo</th>
+                    <th>#</th>
+                    
+                    
+                    
+                </thead>
+                {% for x in data %}
+                <tr class="table-bordered table-warning">
+                    <td> {{ y }}</td>
+                    <td> {{ x.modelname }} </td>
+                    <td> {{ x.brandname }} </td>
+    
+                    <td> {{ x.sellername }} </td>
+                    <td> {{ x.order_date }} </td>
+                    
+                    <td> {{ x.status }} </td>
+                    <td> {{ x.payment }} </td>
+                    <td> {{ x.total_amount }}</td>
+                    <td> <img src="{{ x.photo }}" height="200" width="200" alt="not found"> </td>
+                    <td><a href="/approveOrder/{{ x.id }}">Approve Order</a></td>
+                    
+                </tr>
+                {% endfor %}
+                
+            </table>
+        
+        </div>
+      </div> 
+      
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <p>Copyright © 2036 <a href="#">BETA</a> Company. All rights reserved. 
+          <br>Design: <a href="https://templatemo.com" target="_blank" title="free CSS templates">TemplateMo</a> Distribution: <a href="https://themewagon.com target="_blank" >ThemeWagon</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+
+  <script src="{% static 'assets/js/isotope.min.js' %}"></script>
+  <script src="{% static 'assets/js/owl-carousel.js' %}"></script>
+  <script src="{% static 'assets/js/wow.js' %}"></script>
+  <script src="{% static 'assets/js/tabs.js' %}"></script>
+  <script src="{% static 'assets/js/popup.js' %}"></script>
+  <script src="{% static 'assets/js/custom.js' %}"></script>
+
+  <script>
+    function bannerSwitcher() {
+      next = $('.sec-1-input').filter(':checked').next('.sec-1-input');
+      if (next.length) next.prop('checked', true);
+      else $('.sec-1-input').first().prop('checked', true);
+    }
+
+    var bannerTimer = setInterval(bannerSwitcher, 5000);
+
+    $('nav .controls label').click(function() {
+      clearInterval(bannerTimer);
+      bannerTimer = setInterval(bannerSwitcher, 5000)
+    });
+  </script>
+
+  </body>
+
+</html>
