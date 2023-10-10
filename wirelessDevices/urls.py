@@ -87,7 +87,7 @@ urlpatterns = [
     path('demo/',views.demo),
     path('viewProductImg/<int:id>',views.viewProductImg),
     path('viewOrderStaff/',views.viewOrderStaff),
-    path('assignStaff/',views.assignStaff),
+    path('assignStaff/<int:id>',views.assignStaff),
     path('approveOrder/<int:id>',views.approveOrder),
     path('viewOrderStaffAssign/',views.viewOrderStaffAssign),
 

@@ -576,7 +576,7 @@ def addOrder(request):
     return redirect('/userHome/')
 def viewOrder(request):
     a=request.session['username']
-    p=tbl_order.objects.filter(username=a,status="In-order")
+    p=tbl_order.objects.filter(username=a)
     sum =0
     for x in p:
         sum=sum + int(x.total_amount)
@@ -592,8 +592,9 @@ def viewOrderStaffAssign(request):
     a=request.session['username']
     p=tbl_order.objects.filter(sellername=a,status="Order Approved")
     return render(request,"viewOrderStaffAssign.html",{'data':p,'y':a})
-
-def assignStaff(request):
+# def assignStaffform(request,id):
+    #code to open form of assign staff
+def assignStaff(request,id):
     p=request.session['username']
     tb=tbl_staffDetails.objects.all()
     b=tbl_staffDuties()
