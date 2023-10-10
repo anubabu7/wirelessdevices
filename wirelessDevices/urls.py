@@ -76,6 +76,7 @@ urlpatterns = [
     path('viewSellerStaff/',views.viewSellerStaff),
     path('viewProductStaff/<str:username>',views.viewProductStaff),
     path('viewProductStaff1/',views.viewProductStaff1),
+    path('viewProductSeller/',views.viewProductSeller),
 
     path('addToCart/<int:id>',views.addToCart),
     path('addToCart1/',views.addToCart1),
@@ -87,7 +88,8 @@ urlpatterns = [
     path('demo/',views.demo),
     path('viewProductImg/<int:id>',views.viewProductImg),
     path('viewOrderStaff/',views.viewOrderStaff),
-    path('assignStaff/<int:id>',views.assignStaff),
+    path('assignStaff/',views.assignStaff),
+    path('assignStaffForm/',views.assignStaffForm),
     path('approveOrder/<int:id>',views.approveOrder),
     path('viewOrderStaffAssign/',views.viewOrderStaffAssign),
 

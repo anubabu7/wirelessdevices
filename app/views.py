@@ -406,6 +406,11 @@ def addProduct(request):
 def viewProduct(request):
     p=tbl_productDetails.objects.all()
     return render(request,"viewProduct.html",{'data':p})
+def viewProductSeller(request):
+    a=request.session['username']
+    p=tbl_productDetails.objects.filter(sellername=a)
+    return render(request,"viewProduct.html",{'data':p})
+
 def viewProductUser(request):
     p=tbl_productDetails.objects.all()
     return render(request,"viewProductUser.html",{'data':p})
@@ -592,11 +597,12 @@ def viewOrderStaffAssign(request):
     a=request.session['username']
     p=tbl_order.objects.filter(sellername=a,status="Order Approved")
     return render(request,"viewOrderStaffAssign.html",{'data':p,'y':a})
-# def assignStaffform(request,id):
-    #code to open form of assign staff
-def assignStaff(request,id):
+def assignStaffForm(request):
     p=request.session['username']
     tb=tbl_staffDetails.objects.all()
+    return render(request,"assignStaffForm.html",{'x':p,'data':tb})
+    
+def assignStaff(request):
     b=tbl_staffDuties()
     b.sellername=request.POST.get('sellername')
     b.staffname=request.POST.get('uname')
@@ -605,7 +611,7 @@ def assignStaff(request,id):
     b.instructions=request.POST.get('instructions')
     b.order_id=request.POST.get('orderid')
     b.save()
-    return render(request,"assignStaff.html",{'x':p,'data':tb})
+    return redirect('/viewOrderStaff/')
 def approveOrder(request,id):
     p=tbl_order.objects.get(id=id)
     p.status="Order Approved"

@@ -68,47 +68,44 @@ https://templatemo.com/tm-580-woox-travel
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav navbar">
-                      <li><a href="/sellerHome/">Home</a></li>
-                      <li><a href="//">About</a></li>
-                      
-                      
-                      
-                      <li class="dropdown"><a href="#"><span>Product</span> <i class="bi bi-chevron-right"></i></a>
-                        <ul>
-                          <li><a href="/product/">Add </a></li>
-                          <li><a href="/viewProduct/">Update</a></li>
-                          <li><a href="/viewProduct/">Delete</a></li>
-                          
-                        </ul>
-                      </li>
-                      <li class="dropdown"><a href="#"><span>Offers</span> <i class="bi bi-chevron-right"></i></a>
-                        <ul>
-                          <li><a href="/offer/">Add</a></li>
-                          <li><a href="/viewOffer/">Update</a></li>
-                          <li><a href="/viewOffer/">Delete</a></li>
-                          
-                        </ul>
-                      </li>
-                      <li class="dropdown"><a href="#"><span>Feedbacks</span> <i class="bi bi-chevron-right"></i></a>
-                        <ul>
-                          <li><a href="/viewFeedback/">View Feed</a></li>
-                          <li><a href="/viewFeedback/">Remove</a></li>
-                          
-                          
-                        </ul>
-                      </li>
-                      <li class="dropdown"><a href="#"><span>More</span> <i class="bi bi-chevron-right"></i></a>
-                        <ul>
-                          <li><a href="/viewProfileSeller/">View Profile</a></li>
-                          <li><a href="/viewOrderStaff/">View Orders</a></li>
-
-                          <li><a href="/">Log Out</a></li>
-                          
-                        </ul>
-                      </li>
-                      
-                      
-                  </ul>   
+                        <li><a href="/sellerHome/">Home</a></li>
+                        <li><a href="//">About</a></li>
+                        
+                     
+                        
+                        <li class="dropdown"><a href="#"><span>Product</span> <i class="bi bi-chevron-right"></i></a>
+                          <ul>
+                            <li><a href="/product/">Add </a></li>
+                            <li><a href="/viewProduct/">Update</a></li>
+                            <li><a href="/viewProduct/">Delete</a></li>
+                            
+                          </ul>
+                        </li>
+                        <li class="dropdown"><a href="#"><span>Offers</span> <i class="bi bi-chevron-right"></i></a>
+                          <ul>
+                            <li><a href="/offer/">Add</a></li>
+                            <li><a href="/viewOffer/">Update</a></li>
+                            <li><a href="/viewOffer/">Delete</a></li>
+                            
+                          </ul>
+                        </li>
+                        <li class="dropdown"><a href="#"><span>Feedbacks</span> <i class="bi bi-chevron-right"></i></a>
+                          <ul>
+                            <li><a href="//">View Feed</a></li>
+                            <li><a href="//">Remove</a></li>
+                            
+                            
+                          </ul>
+                        </li>
+                        
+                        <li class="dropdown"><a href="#"><span>More</span> <i class="bi bi-chevron-right"></i></a>
+                          <ul>
+                            <li><a href="/viewProfileSeller/">View Profile</a></li>
+                            <li><a href="/">Log Out</a></li>
+                            
+                          </ul>
+                        </li>
+                    </ul>   
                     <a class='menu-trigger'>
                         <span>Menu</span>
                     </a>
@@ -131,35 +128,39 @@ https://templatemo.com/tm-580-woox-travel
         <div class="banner-inner-wrapper header-text ">
             <table class="table table-striped table-bordered table-hover " >
                 <thead class="thead-primary">
-                    <th>User Name</th>
-                    <th>Model Name</th>
-                    <th>Brand Name</th>
                     <th>Seller Name</th>
-                    <th>Order Date</th>
+                    <th>Brand Name</th>
+                    <th>Model Name</th>
+                    <th>Color</th>
+                    <th>Price</th>
+                    <th>Offer</th>
+                    <th>Battery</th>
+                    <th>Playback</th>
                     <th>Status</th>
-                    <th>Payment</th>
-                    <th>Total Amount</th>
                     <th>Photo</th>
-                    <th>#</th>
-                    <th>#</th>
-                    
+                    <th># </th>
+                    <th># </th>
                     
                 </thead>
                 {% for x in data %}
                 <tr class="table-bordered table-warning">
-                    <td> {{ y }}</td>
-                    <td> {{ x.modelname }} </td>
+                    <td> {{ x.sellername }}</td>
                     <td> {{ x.brandname }} </td>
+                    <td> {{ x.modelname }} </td>
     
-                    <td> {{ x.sellername }} </td>
-                    <td> {{ x.order_date }} </td>
+                    <td> {{ x.color }} </td>
+                    <td> {{ x.price }} </td>
                     
-                    <td> {{ x.status }} </td>
-                    <td> {{ x.payment }} </td>
-                    <td> {{ x.total_amount }}</td>
-                    <td> <img src="{{ x.photo }}" height="200" width="200" alt="not found"> </td>
+                    <td> {{ x.offer }} </td>
+                    <td> {{ x.battery }} </td>
+                    <td> {{ x.playback }}</td>
+                    <td> {{ x.status }}</td>
+                    <td> <img src="{{ x.photo }}" height="200" width="200" alt="Texttt"></td>
+                     
                     
-                    <td><a href="/assignStaffForm/">Assign a staff</a></td>
+                    <td> <a href="/deleteProduct/{{ x.id }}">Delete</a> </td>
+                    <td><a href="/updateProduct/{{ x.id }}">Update</a></td>
+                    
                 </tr>
                 {% endfor %}
                 
