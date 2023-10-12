@@ -6,6 +6,9 @@ from django.contrib.auth import authenticate
 from django.http import HttpResponse
 from app.models import tbl_userAccount,tbl_userDetails,tbl_sellerDetails,tbl_staffDetails,tbl_productDetails,tbl_feedback,tbl_offer,tbl_cart,tbl_order,tbl_staffDuties
 import datetime
+from django.core.paginator import Paginator
+from django.db import connection
+#  from django.core.paginator import Paginator
 # Create your views here.
 def index(request):
    return render(request,"index.html")
@@ -550,7 +553,11 @@ def viewCart(request):
     for x in p:
         sum=sum + int(x.total_amount)
         qty= qty + int(x.quantity)
-    return render(request,"viewCart.html",{'data':p,'y':a,'m':sum ,'q':qty,})
+    paginator = Paginator(p, 2)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)   
+    print(page_obj,"test2") 
+    return render(request,"viewCart.html",{'data':p,'y':a,'m':sum ,'q':qty,"page_obj": page_obj})
 def delCartItem(request,id):
     p=tbl_cart.objects.get(id=id)
     p.delete()

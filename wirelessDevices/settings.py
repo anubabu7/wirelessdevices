@@ -77,7 +77,8 @@ WSGI_APPLICATION = 'wirelessDevices.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME':'db_wirelessDevicesnew',
+        # 'NAME':'db_wirelessDevicesnew',
+        'NAME':'db_wirelessdevices',
         'USER':'root',
         'PASSWD':'',
         'HOST':'localhost',

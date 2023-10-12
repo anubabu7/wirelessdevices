@@ -124,7 +124,25 @@ https://templatemo.com/tm-580-woox-travel
                           
                         </div>
                         <hr class="my-4">
-                        
+                        <div class="pagination">
+                          <span class="step-links">
+
+                              {% if page_obj.has_previous %}
+                                  <a href="?page=1">&laquo; page </a><!-- first -->
+                                  <a href="?page={{ page_obj.previous_page_number }}">{{ page_obj.number }} </a>
+                                  {% endif %}
+                      
+                              <span class="current">
+                                  Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                              </span>
+                      
+                              {% if page_obj.has_next %}
+                                   <a href="?page={{ page_obj.next_page_number }}"> page</a> <!--next page of 1 -->
+                                  <a href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.number }}of {{ page_obj.paginator.num_pages }} &raquo;</a>
+                              {% endif %}
+                             
+                          </span>
+                      </div>
                         {% for x in data %}
                         
                         <div class="row mb-4 d-flex justify-content-between align-items-center">
@@ -156,7 +174,7 @@ https://templatemo.com/tm-580-woox-travel
                           </div>
                           <div class="" >
                           <a href="/order/{{ x.id }}" style="float: right;">
-                            <button type="button" class="btn btn-dark" data-mdb-ripple-color="dark">Register</button>
+                            <button type="button" class="btn btn-dark" data-mdb-ripple-color="dark">Order Now</button>
                           </a>
                             </div>
                           <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
@@ -169,6 +187,7 @@ https://templatemo.com/tm-580-woox-travel
                         </div>
                         <hr class="my-4">
                         {% endfor %}
+                        
                         <hr class="my-4">
       
                         <div class="pt-5">
