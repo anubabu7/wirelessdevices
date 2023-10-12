@@ -597,10 +597,12 @@ def viewOrderStaffAssign(request):
     a=request.session['username']
     p=tbl_order.objects.filter(sellername=a,status="Order Approved")
     return render(request,"viewOrderStaffAssign.html",{'data':p,'y':a})
-def assignStaffForm(request):
+def assignStaffForm(request,id):
     p=request.session['username']
     tb=tbl_staffDetails.objects.all()
-    return render(request,"assignStaffForm.html",{'x':p,'data':tb})
+    a=tbl_order.objects.get(id=id)
+    
+    return render(request,"assignStaffForm.html",{'x':p,'data':tb,'y':a})
     
 def assignStaff(request):
     b=tbl_staffDuties()
@@ -611,12 +613,38 @@ def assignStaff(request):
     b.instructions=request.POST.get('instructions')
     b.order_id=request.POST.get('orderid')
     b.save()
-    return redirect('/viewOrderStaff/')
+    return redirect('/viewOrderStaffAssign/')
 def approveOrder(request,id):
     p=tbl_order.objects.get(id=id)
     p.status="Order Approved"
     p.save()
     return redirect('/viewOrderStaffAssign/')
+def deleteOrder(request,id):
+    p=tbl_order.objects.get(id=id)
+    p.delete()
+    return redirect('/viewOrderStaffAssign/')
+def orderCancel(request,id):
+    p=tbl_order.objects.get(id=id)
+    p.status="Order Cancelled"
+    p.save()
+    return redirect('/viewOrderStaffAssign/')
+def readyDispatch(request,id):
+    p=tbl_order.objects.get(id=id)
+    p.status="Ready To Dispatch"
+    p.save()
+    return redirect('/viewOrderStaffHome/')
+def viewDuty(request):
+    a=request.session['username']
+    p=tbl_staffDuties.objects.filter(staffname=a)
+    return render(request,"viewDuty.html",{'data':p})
+def viewOrderStaffHome(request):
+    
+    p=tbl_order.objects.all()
+    return render(request,"viewOrderStaffHome.html",{'data':p})
+def viewStatus(request):
+    a=request.session['username']
+    p=tbl_order.objects.filter(username=a)
+    return render(request,"viewStatus.html",{'data':p})
 
 
 

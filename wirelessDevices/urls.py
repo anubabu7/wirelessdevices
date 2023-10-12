@@ -89,9 +89,15 @@ urlpatterns = [
     path('viewProductImg/<int:id>',views.viewProductImg),
     path('viewOrderStaff/',views.viewOrderStaff),
     path('assignStaff/',views.assignStaff),
-    path('assignStaffForm/',views.assignStaffForm),
+    path('assignStaffForm/<int:id>',views.assignStaffForm),
     path('approveOrder/<int:id>',views.approveOrder),
+    path('orderCancel/<int:id>',views.orderCancel),
+    path('readyDispatch/<int:id>',views.readyDispatch),
     path('viewOrderStaffAssign/',views.viewOrderStaffAssign),
+    path('deleteOrder/<int:id>',views.deleteOrder),
+    path('viewDuty/',views.viewDuty),
+    path('viewOrderStaffHome/',views.viewOrderStaffHome),
+    path('viewStatus/',views.viewStatus),
 
 ]
 if settings.DEBUG:

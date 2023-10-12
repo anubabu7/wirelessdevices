@@ -110,7 +110,7 @@ https://templatemo.com/tm-580-woox-travel
       <input type="radio" id="banner4" class="sec-1-input" name="banner">
       <div class="slider">
     <div class="banner-inner-wrapper header-text ">
-      <section class="h-100 h-custom" style="background-color: #d2c9ff; ">
+      <section class="h-100 h-custom" style="background-color: #d2c9ff;">
         <div class="container py-5 h-100">
           <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-12">
@@ -120,20 +120,22 @@ https://templatemo.com/tm-580-woox-travel
                     <div class="col-lg-8">
                       <div class="p-5">
                         <div class="d-flex justify-content-between align-items-center mb-5">
-                          <h1 class="fw-bold mb-0 text-black">Shopping Cart</h1>
+                          <h1 class="fw-bold mb-0 text-black">{{ y }}</h1>
                           
                         </div>
                         <hr class="my-4">
                         
                         {% for x in data %}
-                        
                         <div class="row mb-4 d-flex justify-content-between align-items-center">
+                           <div class="col-md-2 col-lg-2 col-xl-2">
+                            <h6 class="mb-0 text-muted"></h6>
+                          </div>
                           <div class="col-md-2 col-lg-2 col-xl-2">
                             <a href="/viewProductImg/{{ y.id }}" alt="not found">
                             <img src=" {{ x.photo }} "    alt="not found" height="100px" width="100px"></a>
                           </div> 
                           <div class="col-md-3 col-lg-3 col-xl-3">
-                            <h6 class="text-muted">{{ x.brandname }}</h6>
+                            <h6 class="text-black mb-0">{{ x.brandname }}</h6>
                             <h6 class="text-black mb-0">{{ x.modelname }}</h6>
                           </div>
                           <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
@@ -150,20 +152,21 @@ https://templatemo.com/tm-580-woox-travel
                               <i class="fas fa-plus"></i>
                             </button>
                           </div>
-                          <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                            <h6 class="mb-0">{{ x.price }}</h6>
-                            <h6 class="mb-0">{{ x.quantity }} qty</h6>
-                          </div>
-                          <div class="" >
-                          <a href="/order/{{ x.id }}" style="float: right;">
-                            <button type="button" class="btn btn-dark" data-mdb-ripple-color="dark">Register</button>
-                          </a>
-                            </div>
-                          <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                          <!-- <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                            <h6 class="text-muted">Seller</h6>
+                            <h6 class="mb-0">{{ x.sellername }}</h6>
+                            
+                          </div> -->
+                          <!-- <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
                             <h6 class="mb-0"><a href="/delCartItem/{{ x.id }}"><button type="button" class="btn btn-light"><span class="bi bi-trash"></span></button></a></h6>
-                          </div>
+                          </div> -->
                           <div class="col-md-1 col-lg-1 col-xl-1 text-end">
                             <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
+                            
+                          </div>
+                          <div class="d-flex justify-content-between mb-4">
+                           
+                            <h5 class="text-uppercase">{{ x.status }}</h5>
                             
                           </div>
                         </div>
@@ -171,39 +174,29 @@ https://templatemo.com/tm-580-woox-travel
                         {% endfor %}
                         <hr class="my-4">
       
-                        <div class="pt-5">
-                          <h6 class="mb-0"><a href="/viewProductUser/" class="text-body"><i
-                                class="fas fa-long-arrow-alt-left me-2"></i>Back to shop</a></h6>
-                        </div>
+                        <!-- <div class="pt-5">
+                          <h6 class="mb-0"><a href="/viewCart/" class="text-body"><i
+                                class="fas fa-long-arrow-alt-left me-2"></i>Back to Cart</a></h6>
+                        </div> -->
                       </div>
                     </div>
-                    {% for x in data %}
+<!--                     
                     <div class="col-lg-4 bg-grey">
                       <div class="p-5">
-                        <h3 class="fw-bold mb-5 mt-2 pt-1">Summary</h3>
+                       
                         <hr class="my-4">
       
-                        <div class="d-flex justify-content-between mb-4">
-                          <h5 class="text-uppercase">items {{ q }}</h5>
-                          <h5>{{ sum }}</h5>
-                        </div>
-                        <h5 class="text-uppercase mb-3">Shipping</h5>
-                        <div class="mb-4 pb-2">
-                          <select class="select">
-                            <option >Standard-Delivery-Rs50 </option>
-                            <option >Fastest-Deliivery-Rs75</option>
-                            <option >Express-Delivery-Rs100</option>
-                          </select>
-                        </div>
+                        
+                        <h5 class="text-uppercase mb-3">{{ x.payment }}</h5>
+                        
                         <div class="d-flex justify-content-between mb-5">
                           <h5 class="text-uppercase">Total price</h5>
                           <h5>{{ m }}</h5>
                         </div>
-                        
+
                       </div>
-                      {% endfor %}
-                  
-                    </div>
+                     
+                    </div> -->
                   </div>
                 </div>
               </div>
@@ -214,7 +207,7 @@ https://templatemo.com/tm-580-woox-travel
 </div> 
 </div>
 <footer>
-<div class="container" >
+<div class="container">
 <div class="row">
   <div class="col-lg-12">
     <p>Copyright © 2036 <a href="#">BETA</a> Company. All rights reserved. 

@@ -116,7 +116,7 @@ https://templatemo.com/tm-580-woox-travel
              <div class="col-lg-6">
                <fieldset>
                    <label for="name" class="form-label">Staff</label>
-                   <select  name="uname" class="Name" > 
+                   <select  name="uname" class="Name" required> 
                     <option>Select a Staff</option>
                     {% for a in data %}
                     <option value="{{ a.username }}">{{ a.username }}</option>
@@ -127,8 +127,9 @@ https://templatemo.com/tm-580-woox-travel
           
            <div class="col-lg-6">
                <fieldset>
-                    <label for="name" class="form-label">Assigned Date</label>
-                    <input type="date" name="assigndate" class="Name"  autocomplete="on" required>
+                    <label for="text" class="form-label">Assigned Date</label>
+                    
+                    <!-- <input type="date" name="assigndate" class="Name"  autocomplete="on" required> -->
                   </fieldset>
            </div>
             <div class="col-lg-6">
@@ -140,7 +141,7 @@ https://templatemo.com/tm-580-woox-travel
            <div class="col-lg-6">
              <fieldset>
                  <label for="text" class="form-label">Order ID</label>
-                 <input type="number" name="orderid" class="date"  autocomplete="on" required>
+                 <input type="number" name="orderid" class="date" value="{{ y.id }}" autocomplete="on" required>
              </fieldset>
             </div>
            <!-- <div class="col-lg-6">
