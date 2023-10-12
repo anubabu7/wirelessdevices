@@ -101,6 +101,7 @@ https://templatemo.com/tm-580-woox-travel
                         <ul>
                           <li><a href="/viewProfileSeller/">View Profile</a></li>
                           <li><a href="/viewOrderStaff/">View Orders</a></li>
+                          <li><a href="/viewOrderStaffAssign/">Assign Staff</a></li>
 
                           <li><a href="/">Log Out</a></li>
                           
@@ -159,7 +160,11 @@ https://templatemo.com/tm-580-woox-travel
                     <td> {{ x.total_amount }}</td>
                     <td> <img src="{{ x.photo }}" height="200" width="200" alt="not found"> </td>
                     
-                    <td><a href="/assignStaffForm/">Assign a staff</a></td>
+                    <td><a href="/assignStaffForm/{{ x.id }}">Assign a staff</a></td>
+                    <td><a href="/deleteOrder/{{ x.id }}">Delete Order</a></td>
+                    
+                   
+
                 </tr>
                 {% endfor %}
                 

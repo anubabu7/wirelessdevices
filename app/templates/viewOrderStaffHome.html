@@ -68,48 +68,38 @@ https://templatemo.com/tm-580-woox-travel
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav navbar">
-                      <li><a href="/sellerHome/">Home</a></li>
-                      <li><a href="//">About</a></li>
+                      <li><a href="/staffHome/">Home</a></li>
+                      <li><a href="">About</a></li>
                       
                       
                       
-                      <li class="dropdown"><a href="#"><span>Product</span> <i class="bi bi-chevron-right"></i></a>
+                      <li class="dropdown"><a href="#"><span>Orders</span> <i class="bi bi-chevron-right"></i></a>
                         <ul>
-                          <li><a href="/product/">Add </a></li>
-                          <li><a href="/viewProduct/">Update</a></li>
-                          <li><a href="/viewProduct/">Delete</a></li>
-                          
-                        </ul>
-                      </li>
-                      <li class="dropdown"><a href="#"><span>Offers</span> <i class="bi bi-chevron-right"></i></a>
-                        <ul>
-                          <li><a href="/offer/">Add</a></li>
-                          <li><a href="/viewOffer/">Update</a></li>
-                          <li><a href="/viewOffer/">Delete</a></li>
-                          
-                        </ul>
-                      </li>
-                      <li class="dropdown"><a href="#"><span>Feedbacks</span> <i class="bi bi-chevron-right"></i></a>
-                        <ul>
-                          <li><a href="/viewFeedback/">View Feed</a></li>
-                          <li><a href="/viewFeedback/">Remove</a></li>
-                          
+                          <li><a href="//">View Orders</a></li>
+                          <li><a href="//">Assign Orders</a></li>
+                          <li><a href="//">View Status</a></li>
                           
                         </ul>
                       </li>
                       <li class="dropdown"><a href="#"><span>More</span> <i class="bi bi-chevron-right"></i></a>
-                        <ul>
-                          <li><a href="/viewProfileSeller/">View Profile</a></li>
-                          <li><a href="/viewOrderStaff/">View Orders</a></li>
-                          <li><a href="/viewOrderStaffAssign/">Assign Staff</a></li>
-
-                          <li><a href="/">Log Out</a></li>
                           
-                        </ul>
-                      </li>
+                            <ul>
+                              <li><a href="/viewProfileStaff/">View Profile</a></li>
+                              <li><a href="/viewSellerStaff/">View Sellers</a></li>
+                              <li><a href="/viewProductStaff1/">View Products</a></li>
+                              <li><a href="/viewOffer/">View Offers</a></li>
+                              <li><a href="/viewFeedback/">View Feedbacks</a></li>
+                              <li><a href="/viewDuty/">View Duties</a></li>
+                              <li><a href="/viewOrderStaffHome/">View Order</a></li>
+                              
+                            </ul>
+                            </li>
                       
                       
-                  </ul>   
+
+                      <li><a href="/">Log Out</a></li>
+
+                  </ul>  
                     <a class='menu-trigger'>
                         <span>Menu</span>
                     </a>
@@ -161,8 +151,8 @@ https://templatemo.com/tm-580-woox-travel
                     <td> {{ x.payment }} </td>
                     <td> {{ x.total_amount }}</td>
                     <td> <img src="{{ x.photo }}" height="200" width="200" alt="not found"> </td>
-                    <td><a href="/approveOrder/{{ x.id }}">Approve Order</a></td>
-                    <td><a href="/orderCancel/{{ x.id }}">order Cancel</a></td>
+                    <td><a href="/readyDispatch/{{ x.id }}">Ready To Dispatch</a></td>
+                   
                     
                 </tr>
                 {% endfor %}
