@@ -322,9 +322,7 @@ def viewProductStaff(request,username):
     p1=tbl_productDetails.objects.filter(sellername=username)
     return render(request,"viewProductStaff.html",{'data':p1,'x':p})
 
-def viewUser(request):
-    p=tbl_userDetails.objects.all()
-    return render(request,"viewUser.html",{'data':p})
+
 def deleteSeller(request,id):
     p=tbl_sellerDetails.objects.get(id=id)
     a=User.objects.get(username=p.username)
@@ -382,6 +380,13 @@ def updateUserAdd(request,username):
         b.save()
         return redirect('/userHome/')
     
+
+def deleteUser(request,id):
+    p=tbl_userDetails.objects.get(id=id)
+    a=User.objects.get(username=p.username)
+    p.delete()
+    a.delete()
+    return redirect('/viewUser/')
 
     #-----------PRODUCT DETAILS-----------
 def product(request):
@@ -592,7 +597,18 @@ def viewOrder(request):
     sum =0
     for x in p:
         sum=sum + int(x.total_amount)
-    return render(request,"viewOrder.html",{'data':p,'y':a,'m':sum })
+    paginator = Paginator(p, 2)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)   
+    print(page_obj,"test2") 
+    return render(request,"viewOrder.html",{'data':p,'y':a,'m':sum, "page_obj": page_obj })
+def viewUser(request):
+    p=tbl_userDetails.objects.all()
+    paginator = Paginator(p, 2)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)   
+    print(page_obj,"test2") 
+    return render(request,"viewUser.html",{'data':p, "page_obj": page_obj })
 def viewProductImg(request,id):
     b=tbl_productDetails.objects.get(id=id)
     return render(request,"viewProductImg.html",{'x':b})
