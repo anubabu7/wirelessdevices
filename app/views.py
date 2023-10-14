@@ -603,12 +603,26 @@ def viewOrder(request):
     print(page_obj,"test2") 
     return render(request,"viewOrder.html",{'data':p,'y':a,'m':sum, "page_obj": page_obj })
 def viewUser(request):
-    p=tbl_userDetails.objects.all()
-    paginator = Paginator(p, 2)
+    a=tbl_userAccount.objects.filter(accountType="User")
+    users=[]
+    for x in a:
+        print(x.username,"value of x")
+        try:
+            p=tbl_userDetails.objects.get(username=x.username)
+            print(p,"val of p")
+            if p in users:
+                pass
+            else:
+            
+                users.append(p)
+        except:
+         pass     
+    print(users,"Users")        
+    paginator = Paginator(users, 2)
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)   
     print(page_obj,"test2") 
-    return render(request,"viewUser.html",{'data':p, "page_obj": page_obj })
+    return render(request,"viewUser.html",{'data':users, "page_obj": page_obj })
 def viewProductImg(request,id):
     b=tbl_productDetails.objects.get(id=id)
     return render(request,"viewProductImg.html",{'x':b})
