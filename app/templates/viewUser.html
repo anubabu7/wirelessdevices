@@ -135,7 +135,6 @@ https://templatemo.com/tm-580-woox-travel
           <div class="pagination">
             <span class="step-links">
 
-                
                
             </span>
         </div>
@@ -153,8 +152,7 @@ https://templatemo.com/tm-580-woox-travel
         <a href="?page={{ page_obj.next_page_number }}"> page</a> <!--next page of 1 -->
        <a href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.number }}of {{ page_obj.paginator.num_pages }} &raquo;</a>
    {% endif %}
-            <table class="table table-striped table-bordered table-hover " style="margin-top: 150px;">
-             
+            <table class="table table-striped table-bordered table-hover ">
                 <thead  class="thead-dark">
                     <th>Username</th>
                     <th>Firstname</th>
@@ -169,7 +167,7 @@ https://templatemo.com/tm-580-woox-travel
                     
                 </thead>
                 
-                {% for x in page_obj %}
+                {% for x in data %}
                 <tr class="table-secondary">
                     <td> {{ x.username }}</td>
                     <td> {{ x.firstname }} </td>
@@ -185,7 +183,6 @@ https://templatemo.com/tm-580-woox-travel
                     <td> <a href="/deleteUser/{{ x.id }}">Delete user</a> </td>
                     
                 </tr>
-                
                 {% endfor %}
                 
             </table>

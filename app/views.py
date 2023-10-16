@@ -297,8 +297,26 @@ def updateSellerAdd(request,username):
         return redirect('/viewSeller/')
     
 def viewStaff(request):
-    p=tbl_staffDetails.objects.all()
-    return render(request,"viewStaff.html",{'data':p})
+    a=tbl_userAccount.objects.filter(accountType="staff")
+    staff=[]
+    for x in a:
+        print(x.username,"value of x")
+        try:
+            p=tbl_staffDetails.objects.get(username=x.username)
+            print(p,"value of p")
+            if p in staff:
+                pass
+            else:
+                staff.append(p)
+        except:
+            pass
+    print(staff,"staff")
+    paginator = Paginator(staff, 2)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)   
+    print(page_obj,"test2") 
+    return render(request,"viewStaff.html",{'data':staff,'page_obj':page_obj})
+
 def deleteStaff(request,id):
     p=tbl_staffDetails.objects.get(id=id)
     a=User.objects.get(username=p.username)
