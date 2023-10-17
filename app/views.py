@@ -324,15 +324,68 @@ def deleteStaff(request,id):
     a.delete()
     return redirect('/viewStaff/')
 def viewSeller(request):
-    p=tbl_sellerDetails.objects.all()
-    return render(request,"viewSeller.html",{'data':p})
+    a=tbl_userAccount.objects.filter(accountType="seller")
+    seller=[]
+    for x in a:
+        print(x.username,"value of x")
+        try:
+            p=tbl_sellerDetails.objects.get(username=x.username)
+            print(p,"value of p")
+            if p in seller:
+                pass
+            else:
+                seller.append(p)
+        except:
+            pass
+    print(seller,"seller")
+    paginator = Paginator(seller, 2)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)   
+    print(page_obj,"test2") 
+    return render(request,"viewSeller.html",{'data':seller,'page_obj':page_obj})
 def viewSellerUser(request):
-    p=tbl_sellerDetails.objects.all()
-    return render(request,"viewSellerUser.html",{'data':p})
+    a=tbl_userAccount.objects.filter(accountType="seller")
+    seller=[]
+    for x in a:
+        print(x.username,"value of x")
+        try:
+            p=tbl_sellerDetails.objects.get(username=x.username)
+            print(p,"value of p")
+            if p in seller:
+                pass
+            else:
+                seller.append(p)
+        except:
+            pass
+    print(seller,"seller")
+    paginator = Paginator(seller, 2)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)   
+    print(page_obj,"test2") 
+    return render(request,"viewSellerUser.html",{'data':seller,'page_obj':page_obj})
 def viewSellerStaff(request):
-    p=tbl_sellerDetails.objects.all()
-    return render(request,"viewSellerStaff.html",{'data':p})
+    a=tbl_userAccount.objects.filter(accountType="seller")
+    seller=[]
+    for x in a:
+        print(x.username,"value of x")
+        try:
+            p=tbl_sellerDetails.objects.get(username=x.username)
+            print(p,"value of p")
+            if p in seller:
+                pass
+            else:
+                seller.append(p)
+        except:
+            pass
+    print(seller,"seller")
+    paginator = Paginator(seller, 2)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)   
+    print(page_obj,"test2") 
+    return render(request,"viewSellerStaff.html",{'data':seller,'page_obj':page_obj})
+    
 def viewProductStaff1(request):
+
     p=tbl_productDetails.objects.all()
     return render(request,"viewProductStaff1.html",{'data':p})
 def viewProductStaff(request,username):
@@ -431,14 +484,26 @@ def addProduct(request):
 
 def viewProduct(request):
     p=tbl_productDetails.objects.all()
-    return render(request,"viewProduct.html",{'data':p})
+    paginator = Paginator(p, 2)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)   
+    print(page_obj,"test2")
+    return render(request,"viewProduct.html",{'data':p,  "page_obj": page_obj })
 def viewProductSeller(request):
     a=request.session['username']
     p=tbl_productDetails.objects.filter(sellername=a)
-    return render(request,"viewProduct.html",{'data':p})
+    
+    paginator = Paginator(p, 2)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)   
+    print(page_obj,"test2")
+ 
+    return render(request,"viewProductSeller.html",{'data':p, "page_obj": page_obj })
+   
 
 def viewProductUser(request):
     p=tbl_productDetails.objects.all()
+    
     return render(request,"viewProductUser.html",{'data':p})
 def updateProduct(request,id):
     p=tbl_productDetails.objects.get(id=id)
@@ -499,10 +564,18 @@ def addOffer(request):
 
 def viewOffer(request):
     p=tbl_offer.objects.all()
-    return render(request,"viewOffer.html",{'data':p})
+    paginator = Paginator(p, 2)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)   
+    print(page_obj,"test2")
+    return render(request,"viewOffer.html",{'data':p, "page_obj": page_obj })
 def viewOfferUser(request):
     p=tbl_offer.objects.all()
-    return render(request,"viewOfferUser.html",{'data':p})
+    paginator = Paginator(p, 2)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)   
+    print(page_obj,"test2")
+    return render(request,"viewOfferUser.html",{'data':p, "page_obj": page_obj })
 def updateOffer(request,id):
     p=tbl_offer.objects.get(id=id)
     return render(request,"updateOffer.html",{'data':p})
@@ -527,7 +600,9 @@ def deleteOffer(request,id):
 
 
 def feedback(request):
-    return render(request,"feedback.html")
+    p=request.session['username']
+    tb=tbl_productDetails.objects.all()
+    return render(request,"feedback.html",{'x':p,'data':tb})
 def addFeedback(request):
     a=tbl_feedback()
     a.username=request.POST.get('uname')
@@ -693,9 +768,15 @@ def viewDuty(request):
     p=tbl_staffDuties.objects.filter(staffname=a)
     return render(request,"viewDuty.html",{'data':p})
 def viewOrderStaffHome(request):
-    
+   
     p=tbl_order.objects.all()
-    return render(request,"viewOrderStaffHome.html",{'data':p})
+    paginator = Paginator(p, 2)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)   
+    print(page_obj,"test2")
+ 
+    return render(request,"viewOrderStaffHome.html",{'data':p, "page_obj": page_obj })
+
 def viewStatus(request):
     a=request.session['username']
     p=tbl_order.objects.filter(username=a)
