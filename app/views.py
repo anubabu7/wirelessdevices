@@ -489,6 +489,13 @@ def viewProduct(request):
     page_obj = paginator.get_page(page_number)   
     print(page_obj,"test2")
     return render(request,"viewProduct.html",{'data':p,  "page_obj": page_obj })
+def viewProductAdmin(request):
+    p=tbl_productDetails.objects.all()
+    paginator = Paginator(p, 2)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)   
+    print(page_obj,"test2")
+    return render(request,"viewProductAdmin.html",{'data':p,  "page_obj": page_obj })
 def viewProductSeller(request):
     a=request.session['username']
     p=tbl_productDetails.objects.filter(sellername=a)
@@ -576,6 +583,13 @@ def viewOfferUser(request):
     page_obj = paginator.get_page(page_number)   
     print(page_obj,"test2")
     return render(request,"viewOfferUser.html",{'data':p, "page_obj": page_obj })
+def viewOfferStaff(request):
+    p=tbl_offer.objects.all()
+    paginator = Paginator(p, 2)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)   
+    print(page_obj,"test2")
+    return render(request,"viewOfferStaff.html",{'data':p, "page_obj": page_obj })
 def updateOffer(request,id):
     p=tbl_offer.objects.get(id=id)
     return render(request,"updateOffer.html",{'data':p})
@@ -615,6 +629,12 @@ def addFeedback(request):
 def viewFeedback(request):
     p=tbl_feedback.objects.all()
     return render(request,"viewFeedback.html",{'data':p})
+def viewFeedbackUser(request):
+    p=tbl_feedback.objects.all()
+    return render(request,"viewFeedbackUser.html",{'data':p})
+def viewFeedbackStaff(request):
+    p=tbl_feedback.objects.all()
+    return render(request,"viewFeedbackStaff.html",{'data':p})
 
 def deleteFeedback(request,id):
     p=tbl_feedback.objects.get(id=id)
