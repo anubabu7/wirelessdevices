@@ -68,38 +68,33 @@ https://templatemo.com/tm-580-woox-travel
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav navbar">
-                        <li><a href="/userHome/">Home</a></li>
-                        <li><a href="//">About</a></li>
-                        
-                        <li class="dropdown"><a href="#"><span>Profile</span> <i class="bi bi-chevron-right"></i></a>
-                          <ul>
-                            <li><a href="/viewProfileUser/">View profile</a></li>
-                            <li><a href="/updateUser/{{ x.username }}">Edit Profile</a></li>
-                            
-                            
-                          </ul>
-                        </li>
-                        <li class="dropdown"><a href="#"><span>View</span> <i class="bi bi-chevron-right"></i></a>
-                          <ul>
-                            <li><a href="/viewSellerUser/">View Sellers</a></li>
-                            <li><a href="/viewProductUser/">View Products</a></li>
-                            <li><a href="/viewOfferUser/">View Offers</a></li>
-                            <li><a href="/viewFeedback/">View Feedbacks</a></li>
-                            
-                          </ul>
-                        </li>
-                        <li class="dropdown"><a href="#"><span>More</span> <i class="bi bi-chevron-right"></i></a>
-                          <ul>
-                        <li><a href="/feedback/">Add Feedback</a></li>
-                        <li><a href="/viewCart/">View Cart</a></li>
-                        <li><a href="/viewOrder/">View Order</a></li>
+                      <li><a href="/staffHome/">Home</a></li>
+                      <li><a href="">About</a></li>
+                      
+                      
+                      
+                      <li class="dropdown"><a href="#"><span>Orders</span> <i class="bi bi-chevron-right"></i></a>
+                        <ul>
+                          <li><a href="/viewOrderStaffHome/">View Orders</a></li>
+                          
+                          <li><a href="/viewDuty/">View Status</a></li>
+                          
                         </ul>
-                        </li>
-                        <li><a href="/">Log Out</a></li> 
-                    </ul>  
-                    <a class='menu-trigger'>
-                        <span>Menu</span>
-                    </a>
+                      </li>
+                      <li class="dropdown"><a href="#"><span>More</span> <i class="bi bi-chevron-right"></i></a>
+                          
+                            <ul>
+                              <li><a href="/viewProfileStaff/">View Profile</a></li>
+                              <li><a href="/viewSellerStaff/">View Sellers</a></li>
+                              <li><a href="/viewProductStaff1/">View Products</a></li>
+                              <li><a href="/viewOfferStaff/">View Offers</a></li>
+                              <li><a href="/viewFeedbackStaff/">View Feedbacks</a></li>
+                              
+                            </ul>
+                            </li>
+                      <li><a href="/">Log Out</a></li>
+
+                  </ul>  
                     <!-- ***** Menu End ***** -->
                 </nav>
             </div>
@@ -117,6 +112,26 @@ https://templatemo.com/tm-580-woox-travel
       <input type="radio" id="banner4" class="sec-1-input" name="banner">
       <div class="slider">
         <div class="banner-inner-wrapper header-text ">
+          <div class="pagination">
+            <span class="step-links">
+
+               
+            </span>
+        </div>
+       <h1 style="color: antiquewhite;">helo</h1>
+       {% if page_obj.has_previous %}
+       <a href="?page=1">&laquo; page </a><!-- first -->
+       <a href="?page={{ page_obj.previous_page_number }}">{{ page_obj.number }} </a>
+       {% endif %}
+
+   <span class="current">
+       Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+   </span>
+
+   {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}"> page</a> <!--next page of 1 -->
+       <a href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.number }}of {{ page_obj.paginator.num_pages }} &raquo;</a>
+   {% endif %}
             <table class="table table-striped table-bordered table-hover " >
                 <thead class="thead-primary">
                     <th>Username</th>
@@ -132,7 +147,7 @@ https://templatemo.com/tm-580-woox-travel
                     
                     
                 </thead>
-                {% for x in data %}
+                {% for x in page_obj %}
                 <tr class="table-bordered table-warning">
                     <td> {{ x.username }}</td>
                     <td> {{ x.firstname }} </td>

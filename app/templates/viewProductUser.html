@@ -53,7 +53,7 @@ https://templatemo.com/tm-580-woox-travel
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
                     
-                    <a href="index.html" class="logo">
+                    <a href="/" class="logo">
                         <img src="{% static 'assets/images/betalogo.png' %}" alt="">
                     </a>
                     <!-- ***** Logo End ***** -->
@@ -83,11 +83,13 @@ https://templatemo.com/tm-580-woox-travel
                         <ul>
                       <li><a href="/feedback/">Add Feedback</a></li>
                       <li><a href="/viewCart/">View Cart</a></li>
-                      <li><a href="//">View Order</a></li>
+                      <li><a href="/viewOrder/">View Order</a></li>
+                      <li><a href="/viewStatus/">Status</a></li>
+
                       </ul>
                       </li>
                       <li><a href="/">Log Out</a></li> 
-                  </ul>   
+                  </ul>    
                     <a class='menu-trigger'>
                         <span>Menu</span>
                     </a>
@@ -195,6 +197,9 @@ https://templatemo.com/tm-580-woox-travel
                   <p>{{ x.modelname }}</p>
                   <div class="main-button">
                     <a href="/addToCart/{{ x.id }}">Add to Cart</a>
+                  </div>
+                  <div class="main-button">
+                    <a href="/feedback/">Add Feedback</a>
                   </div>
                 </div>
               </div>
